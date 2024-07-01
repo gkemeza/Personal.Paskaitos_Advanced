@@ -8,13 +8,11 @@
 
         }
 
-        public Dog(string name, int age)
+        public Dog(string name)
         {
             Name = name;
-            QuantityOfSpecies = age;
         }
 
         public string Name { get; set; }
-        public int QuantityOfSpecies { get; set; }
     }
 }

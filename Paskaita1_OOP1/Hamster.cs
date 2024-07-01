@@ -8,13 +8,11 @@
 
         }
 
-        public Hamster(string name, int age)
+        public Hamster(string name)
         {
             Name = name;
-            QuantityOfSpecies = age;
         }
 
         public string Name { get; set; }
-        public int QuantityOfSpecies { get; set; }
     }
 }

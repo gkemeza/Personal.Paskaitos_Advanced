@@ -2,7 +2,8 @@
 {
     internal class Engine
     {
-        public string Type { get; set; }
-        public double Liters { get; set; }
+        public bool IsOn { get; set; }
+        //public string Type { get; set; }
+        //public double Liters { get; set; }
     }
 }

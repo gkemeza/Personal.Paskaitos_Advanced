@@ -4,89 +4,98 @@
     {
         static void Main(string[] args)
         {
-            Computer computer = new Computer();
+            // teorija
+            #region
+            //Computer computer = new Computer();
 
-            computer.Name = "Samsung";
-            computer.RAM = 16;
-            computer.CPU = "Intel";
-            computer.GraphicsCard = "Nvidia Geforce 1080";
-            computer.BuildDate = new DateTime(2020, 10, 3);
+            //computer.Name = "Samsung";
+            //computer.RAM = 16;
+            //computer.CPU = "Intel";
+            //computer.GraphicsCard = "Nvidia Geforce 1080";
+            //computer.BuildDate = new DateTime(2020, 10, 3);
 
-            Computer computer1 = new Computer("Asus1", "AMD", "AMD", 8, true);
-            Computer computer2 = new Computer("Asus2", "AMD", "AMD", 4, false);
+            //Computer computer1 = new Computer("Asus1", "AMD", "AMD", 8, true);
+            //Computer computer2 = new Computer("Asus2", "AMD", "AMD", 4, false);
 
-            List<Computer> computers = new List<Computer>();
-            computers.Add(computer);
-            computers.Add(computer1);
-            computers.Add(computer2);
+            //List<Computer> computers = new List<Computer>();
+            //computers.Add(computer);
+            //computers.Add(computer1);
+            //computers.Add(computer2);
 
-            foreach (var comp in computers)
-            {
-                //comp.PrintInfo();
-                //Console.WriteLine(comp.IsEnoughRAM());
-                //Console.WriteLine(comp);
-                //Console.WriteLine("----------------------");
-            }
-
-            // paprasta kompozicija
-            Car car = new Car("Kia");
-            car.Model = "Test";
-            car.Engine = new Engine();
-            car.Engine.Liters = 5;
-            car.Engine.Type = "Dysel";
-
-            // lengviau skaitomas budas
-            // bet geriau per konstruktoriu (tam jis ir yra)
-            Car car2 = new Car("Audi")
-            {
-                Model = "Test",
-                Engine = new Engine()
-                {
-                    Liters = 5,
-                    Type = "Dysel"
-                },
-                Wheels = new List<Wheel>
-                {
-                    new Wheel
-                    {
-                        Brand = "Michelin",
-                        Size = 19
-                    },
-                    new Wheel
-                    {
-                        Brand = "Michelin",
-                        Size = 19
-                    },
-                    new Wheel
-                    {
-                        Brand = "Hankook",
-                        Size = 19
-                    },
-                    new Wheel
-                    {
-                        Brand = "Hankook",
-                        Size = 19
-                    }
-                }
-            };
-
-            // pakeicia pirmo rato dydi
-            car2.Wheels[0].Size = 20;
-
-            //foreach (var wheel in Wheels)
+            //foreach (var comp in computers)
             //{
-
+            //    //comp.PrintInfo();
+            //    //Console.WriteLine(comp.IsEnoughRAM());
+            //    //Console.WriteLine(comp);
+            //    //Console.WriteLine("----------------------");
             //}
 
+            //// paprasta kompozicija
+            //Car car = new Car("Kia");
+            //car.Model = "Test";
+            //car.Engine = new Engine();
+            //car.Engine.Liters = 5;
+            //car.Engine.Type = "Dysel";
+
+            //// lengviau skaitomas budas
+            //// bet geriau per konstruktoriu (tam jis ir yra)
+            //Car car2 = new Car("Audi")
+            //{
+            //    Model = "Test",
+            //    Engine = new Engine()
+            //    {
+            //        Liters = 5,
+            //        Type = "Dysel"
+            //    },
+            //    Wheels = new List<Wheel>
+            //    {
+            //        new Wheel
+            //        {
+            //            Brand = "Michelin",
+            //            Size = 19
+            //        },
+            //        new Wheel
+            //        {
+            //            Brand = "Michelin",
+            //            Size = 19
+            //        },
+            //        new Wheel
+            //        {
+            //            Brand = "Hankook",
+            //            Size = 19
+            //        },
+            //        new Wheel
+            //        {
+            //            Brand = "Hankook",
+            //            Size = 19
+            //        }
+            //    }
+            //};
+
+            //// pakeicia pirmo rato dydi
+            //car2.Wheels[0].Size = 20;
+
+            ////foreach (var wheel in Wheels)
+            ////{
+
+            ////}
+
+            //Laptop laptop = new Laptop("Asus", DateTime.Now, "Nvidia", "AMD", 16, false);
+            #endregion
+
             // #1
+            #region
             //Person person = new Person("Jonas", 99);
             //Console.WriteLine($"{person.Name} is {person.Age} years old");
             //Person person2 = new Person("Jonas", 99, 190.5);
             //Console.WriteLine($"{person2.Name} is {person2.Age} years old and {person2.Height}cm tall");
+            #endregion
 
             // #2
+            #region
             //School school = new School("Licejus", "Vilnius", 550);
             //Console.WriteLine($"Mokykla: {school.Name}, miestas: {school.City}, mokiniu sk.: {school.NumberOfStudents}");
+            #endregion
 
             // #3
             #region
@@ -144,48 +153,53 @@
 
             // #5
             #region
-            //Dog dog = new Dog("Roksis", 12);
-            //Cat cat = new Cat("Miauksis", 5);
-            //Hamster hamster1 = new Hamster("Kriuksis", 9);
+            //Dog dog = new Dog("Roksis");
+            //Cat cat = new Cat("Miauksis");
+            //Cat cat2 = new Cat("Miauksis2");
+            //Cat cat3 = new Cat("Miauksis3");
+            //Hamster hamster = new Hamster("Kriuksis");
+            //Hamster hamster2 = new Hamster("Kriuksis2");
 
             //var dogs = new List<Dog> { dog };
-            //var cats = new List<Cat> { cat };
-            //var hamsters = new List<Hamster> { hamster1 };
+            //var cats = new List<Cat> { cat, cat2, cat3 };
+            //var hamsters = new List<Hamster> { hamster, hamster2 };
 
-            //var animalNames = GetAnimalNames(dogs, cats, hamsters);
-            //foreach (var name in animalNames)
-            //{
-            //    Console.WriteLine(name);
-            //}
+            //var animalNames = GetAnimalNames(dog, cat, hamster);
+            ////foreach (var name in animalNames)
+            ////{
+            ////    Console.WriteLine(name);
+            ////}
 
-            //var quantityOfSpecies = GetQuantityOfSpecies(dogs, cats, hamsters);
-            //foreach (var species in quantityOfSpecies)
+            //var animalsAndQuantityOfSpecies = GetQuantityOfSpecies(dogs, cats, hamsters);
+            //foreach (var animal in animalsAndQuantityOfSpecies)
             //{
-            //    Console.Write($"{species} ");
+            //    Console.Write($"{animal.Key} {animal.Value} ");
             //}
             //Console.WriteLine();
             #endregion
 
             // #6
             #region
-            Square square = new Square(3);
-            Console.WriteLine(GetSquareArea(square));
-            Console.WriteLine(GetSquarePerimeter(square));
-            Console.WriteLine("------------------------");
+            //Square square = new Square(3);
+            //Console.WriteLine(GetSquareArea(square));
+            //Console.WriteLine(GetSquarePerimeter(square));
+            //Console.WriteLine("------------------------");
 
-            Triangle triangle = new Triangle(3.5, 6.5, 3.1);
-            Console.WriteLine(GetTriangleArea(triangle));
-            Console.WriteLine(GetTrianglePerimeter(triangle));
-            Console.WriteLine("------------------------");
+            //Triangle triangle = new Triangle(3.5, 6.5, 3.1);
+            //Console.WriteLine(GetTriangleArea(triangle));
+            //Console.WriteLine(GetTrianglePerimeter(triangle));
+            //Console.WriteLine("------------------------");
 
-            Circle circle = new Circle(5);
-            Console.WriteLine(GetCircleArea(circle));
-            Console.WriteLine(GetCirclePerimeter(circle));
-            Console.WriteLine("------------------------");
+            //Circle circle = new Circle(5);
+            //Console.WriteLine(GetCircleArea(circle));
+            //Console.WriteLine(GetCirclePerimeter(circle));
+            //Console.WriteLine("------------------------");
 
             #endregion
 
             // #7
+            //Car car = new Car();
+
         }
 
         // #3
@@ -203,42 +217,25 @@
         }
 
         // #5
-        public static List<string> GetAnimalNames(List<Dog> dogs, List<Cat> cats, List<Hamster> hamsters)
+        #region
+        public static List<string> GetAnimalNames(Dog dog, Cat cat, Hamster hamster)
         {
             var names = new List<string>();
-            foreach (var dog in dogs)
-            {
-                names.Add(dog.Name);
-            }
-            foreach (var cat in cats)
-            {
-                names.Add(cat.Name);
-            }
-            foreach (var hamster in hamsters)
-            {
-                names.Add(hamster.Name);
-            }
+            names.Add(dog.Name);
+            names.Add(cat.Name);
+            names.Add(hamster.Name);
             return names;
         }
 
-        // #5
-        public static List<string> GetQuantityOfSpecies(List<Dog> dogs, List<Cat> cats, List<Hamster> hamsters)
+        public static Dictionary<string, int> GetQuantityOfSpecies(List<Dog> dogs, List<Cat> cats, List<Hamster> hamsters)
         {
-            var numberOfSpecies = new List<string>();
-            foreach (var dog in dogs)
-            {
-                numberOfSpecies.Add($"{dog.GetType().Name} {dog.QuantityOfSpecies}");
-            }
-            foreach (var cat in cats)
-            {
-                numberOfSpecies.Add($"{cat.GetType().Name} {cat.QuantityOfSpecies}");
-            }
-            foreach (var hamster in hamsters)
-            {
-                numberOfSpecies.Add($"{hamster.GetType().Name} {hamster.QuantityOfSpecies}");
-            }
+            var numberOfSpecies = new Dictionary<string, int>();
+            numberOfSpecies.Add("Dog", dogs.Count());
+            numberOfSpecies.Add("Cat", cats.Count());
+            numberOfSpecies.Add("Hamster", hamsters.Count());
             return numberOfSpecies;
         }
+        #endregion
 
         // #6
         #region
