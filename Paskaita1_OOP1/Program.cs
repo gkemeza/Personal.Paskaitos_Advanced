@@ -205,7 +205,13 @@
             #endregion
 
             // #8
-
+            #region
+            //Person2 person2 = new Person2("Jonas", 30, "Joniskis", "Joniskio");
+            //Console.WriteLine(person2.Name);
+            //Console.WriteLine(person2.Age);
+            //Console.WriteLine(person2.Address.City);
+            //Console.WriteLine(person2.Address.Street);
+            #endregion
 
         }
 
