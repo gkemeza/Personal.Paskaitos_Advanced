@@ -5,11 +5,12 @@
     {
         public Car()
         {
-            //Engine engine = new Engine();
+            Engine = new Engine();
         }
-        public Car(string name)
+
+        public Car(bool isOn) : this()
         {
-            Name = name;
+            Engine.IsOn = isOn;
         }
 
         public string Name { get; set; }

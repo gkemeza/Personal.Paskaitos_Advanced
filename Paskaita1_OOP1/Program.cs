@@ -198,7 +198,14 @@
             #endregion
 
             // #7
+            #region
             //Car car = new Car();
+            //car.StartEngine();
+            //IsEngineON(car);
+            #endregion
+
+            // #8
+
 
         }
 
@@ -270,5 +277,18 @@
             return 2 * Math.PI * circle.Radius;
         }
         #endregion
+
+        // #7
+        public static void IsEngineON(Car car)
+        {
+            if (car.Engine.IsOn)
+            {
+                Console.WriteLine("Engine is on");
+            }
+            else
+            {
+                Console.WriteLine("Engine is off");
+            }
+        }
     }
 }
