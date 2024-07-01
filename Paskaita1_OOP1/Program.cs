@@ -213,6 +213,17 @@
             //Console.WriteLine(person2.Address.Street);
             #endregion
 
+            // #9
+            #region
+            //var bank = new Bank();
+            //OpenAccount(bank, "Jonas");
+            //OpenAccount(bank, "Simas");
+            //bank.AddMoney("Jonas", 1_500);
+            //bank.AddMoney("Simas", 90_000);
+            #endregion
+
+            // #10
+            // ...
         }
 
         // #3
@@ -296,5 +307,13 @@
                 Console.WriteLine("Engine is off");
             }
         }
+
+        // #9
+        #region
+        public static void OpenAccount(Bank bank, string owner)
+        {
+            bank.Accounts.Add(new Account(owner));
+        }
+        #endregion
     }
 }
