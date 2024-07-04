@@ -5,7 +5,15 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita1_OOP1", "Paskaita1_OOP1\Paskaita1_OOP1.csproj", "{11248990-C51B-4C18-AC8D-0ECC395276B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita2_MethodsInClasses", "Paskaita2_MethodsInClasses\Paskaita2_MethodsInClasses.csproj", "{83E893C3-EF4F-4460-A405-CB12A9C3F835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita2_MethodsInClasses", "Paskaita2_MethodsInClasses\Paskaita2_MethodsInClasses.csproj", "{83E893C3-EF4F-4460-A405-CB12A9C3F835}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita3_Paveldejimas", "Paskaita3_Paveldejimas\Paskaita3_Paveldejimas.csproj", "{6B349EA4-95D1-412E-B823-758D7E3C18A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita3_PaveldejimasTests", "Paskaita3_PaveldejimasTests\Paskaita3_PaveldejimasTests.csproj", "{34F8AA26-753D-4664-B30E-A0CA3510C3B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B0D5FCB7-BF4C-406D-B1B0-10B2B9623C1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita4_Abstract", "Paskaita4_Abstract\Paskaita4_Abstract.csproj", "{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,24 @@ Global
 		{83E893C3-EF4F-4460-A405-CB12A9C3F835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E893C3-EF4F-4460-A405-CB12A9C3F835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E893C3-EF4F-4460-A405-CB12A9C3F835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B349EA4-95D1-412E-B823-758D7E3C18A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B349EA4-95D1-412E-B823-758D7E3C18A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B349EA4-95D1-412E-B823-758D7E3C18A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B349EA4-95D1-412E-B823-758D7E3C18A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F8AA26-753D-4664-B30E-A0CA3510C3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F8AA26-753D-4664-B30E-A0CA3510C3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F8AA26-753D-4664-B30E-A0CA3510C3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F8AA26-753D-4664-B30E-A0CA3510C3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{34F8AA26-753D-4664-B30E-A0CA3510C3B1} = {B0D5FCB7-BF4C-406D-B1B0-10B2B9623C1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3DE24E3-A6AF-436B-9578-6DB71CBEB3CF}
