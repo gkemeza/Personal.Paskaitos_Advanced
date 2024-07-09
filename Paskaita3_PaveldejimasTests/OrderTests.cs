@@ -1,4 +1,6 @@
-﻿namespace Paskaita3_Paveldejimas.Tests
+﻿using Paskaita3_Paveldejimas;
+
+namespace Paskaita3_PaveldejimasTests
 {
     [TestClass()]
     public class OrderTests
