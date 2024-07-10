@@ -1,11 +1,12 @@
 ﻿namespace Paskaita6_MiniProjektas
 {
-    internal class ProgramUI
+    public class ProgramUI
     {
         private AddressBook addressBook = new AddressBook();
 
-        internal void ShowMenu()
+        public void ShowMenu()
         {
+            Console.Clear();
             Console.WriteLine("\tMENIU");
             Console.WriteLine("1. Prideti kontakta");
             Console.WriteLine("2. Perziureti kontaktus");
@@ -14,7 +15,7 @@
             Console.WriteLine("q. Iseiti");
         }
 
-        internal void HandleUserChoice()
+        public void HandleUserChoice()
         {
             string userInput = Console.ReadLine().ToLower();
             var availableChoices = new List<string>
@@ -24,7 +25,6 @@
 
             while (!availableChoices.Contains(userInput))
             {
-                Console.Clear();
                 ShowMenu();
                 Console.WriteLine("Klaida! Iveskite tinkama meniu pasirinkima:");
                 userInput = Console.ReadLine().ToLower();

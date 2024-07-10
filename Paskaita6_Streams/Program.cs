@@ -71,7 +71,25 @@ namespace Paskaita6_Streams
             //program.SupratimoUzduotis2("C:\\Users\\Darbas\\.NET_Code\\CodeAcademy\\Paskaitos_Advanced\\Paskaita6_Streams\\Exercises\\text.txt");
 
             #endregion
+
+            #region ***** Paskaita 2 *****
+
+            Console.WriteLine("Hello, Streams kartojimas");
+            var manoKlase = new ManoKlase();
+            var listas = new List<string>();
+
+            // error
+            //manoKlase.manoMetodas1(listas);
+            manoKlase.manoMetodas1(listas.ToArray());
+
+            manoKlase.manoMetodas2(listas);
+            var masyvas = new string[] { "a", "b", "c" };
+            manoKlase.manoMetodas2(masyvas);
+
+            #endregion
         }
+
+        #region ***** Supratimo uzduotys *****
 
         /*Kas negerai su šiuo metodu rašančiu eilutes į failą iš masyvo? Įvardinkite ir pataisykite.*/
         // naudojo Write() vietoj WriteLine()
@@ -130,5 +148,7 @@ namespace Paskaita6_Streams
                 return reader.ReadToEnd();
             }
         }
+
+        #endregion
     }
 }

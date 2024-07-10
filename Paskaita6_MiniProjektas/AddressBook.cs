@@ -1,8 +1,10 @@
 ﻿namespace Paskaita6_MiniProjektas
 {
-    internal class AddressBook
+    public class AddressBook
     {
-        internal void AddContact()
+        private const string filePath = "contacts.csv";
+
+        public void AddContact()
         {
             Console.WriteLine("Vardas:");
             string firstName = Console.ReadLine();
@@ -16,45 +18,81 @@
 
             string contents = $"{contact.FirstName} {contact.LastName} -> " +
                 $"{contact.PhoneNumber}, {contact.Email}";
-            string path = "contacts.csv";
 
-            File.AppendAllText(path, contents + Environment.NewLine);
+            File.AppendAllText(filePath, contents + Environment.NewLine);
         }
 
-        internal void ViewContacts()
+        public void ViewContacts()
         {
-            string path = "contacts.csv";
-            string[] contacts = File.ReadAllLines(path);
-            for (int i = 0; i < contacts.Length; i++)
-            {
-                Console.WriteLine($"{i + 1}. {contacts[i]}");
-            }
+            Console.Clear();
+            string[] contacts = File.ReadAllLines(filePath);
+            PrintContacts(contacts);
+
+            Console.WriteLine("Enter - testi");
+            Console.ReadLine();
         }
 
-        internal void DeleteContact()
+        public void DeleteContact()
         {
-            ViewContacts();
+            Console.Clear();
+            string[] contacts = File.ReadAllLines(filePath);
+            PrintContacts(contacts);
+
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Irasykite istrinamo kontakto numeri (pvz.: '1'):");
             int contactId = int.Parse(Console.ReadLine());
 
-            string path = "contacts.csv";
-            string[] contacts = File.ReadAllLines(path);
             var list = contacts.ToList();
+            var newList = RemoveContact(list, contactId);
+            File.WriteAllLines(filePath, newList);
+        }
 
+        private List<string> RemoveContact(List<string> list, int contactId)
+        {
             for (int i = 0; i < list.Count; i++)
             {
                 if (contactId == i + 1)
                 {
                     list.RemoveAt(i);
+                    break;
                 }
             }
-            File.WriteAllLines(path, list);
+            return list;
         }
 
-        internal void SearchContact()
+        public void SearchContact()
         {
+            Console.Clear();
+            Console.WriteLine("Iveskite ieskomo kontakto varda arba pavarde:");
+            string nameToSearch = Console.ReadLine().ToLower();
 
+            var searchedContacts = GetSearchedContacts(nameToSearch);
+            PrintContacts(searchedContacts);
+
+            Console.WriteLine("Enter - testi");
+            Console.ReadLine();
+        }
+
+        private List<string> GetSearchedContacts(string name)
+        {
+            var searchedContacts = new List<string>();
+            string[] contacts = File.ReadAllLines(filePath);
+            for (int i = 0; i < contacts.Length; i++)
+            {
+                if (contacts[i].ToLower().Contains(name.ToLower()))
+                {
+                    searchedContacts.Add(contacts[i]);
+                }
+            }
+            return searchedContacts;
+        }
+
+        private void PrintContacts(IEnumerable<string> contacts)
+        {
+            for (int i = 0; i < contacts.Count(); i++)
+            {
+                Console.WriteLine($"{i + 1}. {contacts.ElementAt(i)}");
+            }
         }
     }
 }
