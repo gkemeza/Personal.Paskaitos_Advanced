@@ -1,8 +1,9 @@
 ﻿using Paskaita8_Generics.Exercises;
+//using Paskaita9_Generics;
 
 namespace Paskaita8_Generics
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -62,6 +63,8 @@ namespace Paskaita8_Generics
             //myList.DeleteElement("vienas");
 
             #endregion
+
+            //var obj = new FourSideGeometricFigure();
         }
 
         #region ***** Theory *****
