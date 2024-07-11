@@ -19,7 +19,7 @@
     - Sukurkite Warehouse metodą AddItem(T item) kurie leis pridėti naujus daiktus į inventorių ir išsaugos turimo inventoriaus informaciją faile.
     - Sukurkite Warehouse metodą List<T> GetItems(), kuris nuskaitys inventoriaus informaciją iš failo ir grąžins visus inventoriaus elementus.
     - Sukurkite Warehouse metodą T GetItem(string name), kuris grąžins vieną atitinkamą inventoriaus elementą pagal pavadinimą.
-    - Sukurkite 3 Warehouse klasės objektus, kuriuose saugosite skirtingų tipų (maistas, ginklai, medicina) prekes.
+    - Sukurkite 3 Warehouse klasės objektus, kuriuose saugosite skirtingų tipų (maistas, ginklai, medicina) prekes. !!!
     */
     #endregion
 
@@ -28,9 +28,9 @@
         static void Main(string[] args)
         {
             var potatoes = new FoodItem(10, new DateTime(2050, 01, 05), 500);
-            var warehouse = new Warehouse<FoodItem>();
+            var foodWarehouse = new Warehouse<FoodItem>();
 
-            warehouse.AddItem(potatoes);
+            foodWarehouse.AddItem(potatoes);
         }
     }
 }

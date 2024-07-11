@@ -6,5 +6,15 @@
         {
             File.AppendAllText(item.FilePath, item.ToString());
         }
+
+        public List<T> GetItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public T GetItem(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

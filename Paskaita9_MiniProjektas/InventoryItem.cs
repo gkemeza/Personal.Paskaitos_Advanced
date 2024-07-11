@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Paskaita9_MiniProjektas
+﻿namespace Paskaita9_MiniProjektas
 {
     internal abstract class InventoryItem
     {
