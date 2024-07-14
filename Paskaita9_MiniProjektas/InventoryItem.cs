@@ -2,16 +2,20 @@
 {
     internal abstract class InventoryItem
     {
+        public InventoryItem(double weight, string filePath)
+        {
+            Weight = weight;
+            FilePath = filePath;
+        }
+
         public double Weight { get; set; }
         public string FilePath { get; protected set; }
     }
 
     internal class FoodItem : InventoryItem
     {
-        public FoodItem(double weight, DateTime expirationDate, int calories)
+        public FoodItem(double weight, DateTime expirationDate, int calories) : base(weight, "maistas.csv")
         {
-            FilePath = "maistas.csv";
-            Weight = weight;
             ExpirationDate = expirationDate;
             Calories = calories;
         }
@@ -28,10 +32,8 @@
 
     internal class WeaponItem : InventoryItem
     {
-        public WeaponItem(double weight, int damage)
+        public WeaponItem(double weight, int damage) : base(weight, "ginklai.csv")
         {
-            FilePath = "ginklai.csv";
-            Weight = weight;
             Damage = damage;
         }
 
@@ -45,10 +47,8 @@
 
     internal class MedicalItem : InventoryItem
     {
-        public MedicalItem(double weight, DateTime expirationDate, string treatedDiseases)
+        public MedicalItem(double weight, DateTime expirationDate, string treatedDiseases) : base(weight, "vaistai.csv")
         {
-            FilePath = "vaistai.csv";
-            Weight = weight;
             ExpirationDate = expirationDate;
             TreatedDiseases = treatedDiseases;
         }
