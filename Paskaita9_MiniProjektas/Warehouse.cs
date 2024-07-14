@@ -2,20 +2,35 @@
 
 namespace Paskaita9_MiniProjektas
 {
-    internal class Warehouse<T> where T : InventoryItem
+    internal class Warehouse<T> where T : InventoryItem, new()
     {
         public void AddItem(T item)
         {
-            File.AppendAllText(item.FilePath, item.ToString());
+            File.AppendAllText(item.FilePath, item.ToString() + Environment.NewLine);
         }
 
         public List<T> GetItems()
         {
-            //var inventoryItem = new InventoryItem();
+            // Create a temporary instance of T to get the FilePath and properties
+            T tempObj = new T();
+            string filePath = tempObj.FilePath;
+            //PropertyInfo[] properties = tempObj.GetType().GetProperties();
 
-            Assembly.GetAssembly(typeof(T).GetType());
+            var items = new List<T>();
 
-            //File.ReadAllText(inventoryItem.FilePath);
+            // need to convert to List<T>
+            //if (typeof(T) == typeof(FoodItem))
+            //{
+            //}
+            List<string> lines = File.ReadAllLines(filePath).Skip(1).ToList();
+            List<string> headers = lines[0].Trim().Split(',').ToList();
+
+            foreach (var line in lines)
+            {
+                T obj = new T();
+                var columns = line.Trim().Split(',').ToList();
+            }
+
             throw new NotImplementedException();
         }
 
