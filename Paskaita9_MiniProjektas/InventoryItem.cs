@@ -26,13 +26,12 @@
             FilePath = "maistas.csv";
         }
 
-        public DateTime ExpirationDate { get; set; }
         public int Calories { get; set; }
+        public DateTime ExpirationDate { get; set; }
 
         public override string ToString()
         {
-            return $"Weight: {Weight}kg, ExpirationDate: {ExpirationDate}, " +
-                $"Calories: {Calories}kcal";
+            return $"{Weight}, {ExpirationDate}, {Calories}";
         }
     }
 

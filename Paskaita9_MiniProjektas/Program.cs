@@ -30,7 +30,8 @@
             var foodWarehouse = new Warehouse<FoodItem>();
             var potatoes = new FoodItem(10, new DateTime(2050, 01, 05), 500);
 
-            foodWarehouse.AddItem(potatoes);
+            //foodWarehouse.AddHeader();
+            //foodWarehouse.AddItem(potatoes);
             var allFood = foodWarehouse.GetItems();
 
             //File.ReadAllLines(potatoes.FilePath);
