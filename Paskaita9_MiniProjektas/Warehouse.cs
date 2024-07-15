@@ -4,19 +4,27 @@ namespace Paskaita9_MiniProjektas
 {
     internal class Warehouse<T> where T : InventoryItem, new()
     {
+        private readonly string filePath;
+        private readonly PropertyInfo[] properties;
+
+        public Warehouse()
+        {
+            T tempObj = new T();
+            filePath = tempObj.FilePath;
+            // gauna visas klases ypatybes
+            properties = typeof(T).GetProperties();
+            AddHeader();
+        }
+
         public void AddItem(T item)
         {
-            File.AppendAllText(item.FilePath, item.ToString() + Environment.NewLine);
+            File.AppendAllText(item.FilePath, item + Environment.NewLine);
         }
 
         public List<T> GetItems()
         {
-            T tempObj = new T();
-            string filePath = tempObj.FilePath;
-            // gauna visas klases ypatybes
-            var properties = tempObj.GetType().GetProperties();
-
             var allLines = File.ReadAllLines(filePath).ToList();
+
             var headers = allLines[0].Trim().Split(',');
             allLines.RemoveAt(0);
 
@@ -70,17 +78,13 @@ namespace Paskaita9_MiniProjektas
 
         public void AddHeader()
         {
-            T tempObj = new T();
-            string filePath = tempObj.FilePath;
-            var properties = tempObj.GetType().GetProperties();
-
             var headerNames = new List<string>();
             for (int i = 0; i < properties.Length; i++)
             {
                 headerNames.Add(properties[i].Name);
             }
             string headerLine = string.Join(",", headerNames);
-            File.AppendAllText(filePath, headerLine + Environment.NewLine);
+            File.WriteAllText(filePath, headerLine + Environment.NewLine);
         }
     }
 }
