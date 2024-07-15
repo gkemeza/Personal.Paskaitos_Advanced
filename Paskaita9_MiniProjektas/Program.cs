@@ -19,7 +19,11 @@
     - Sukurkite Warehouse metodą AddItem(T item) kurie leis pridėti naujus daiktus į inventorių ir išsaugos turimo inventoriaus informaciją faile.
     - Sukurkite Warehouse metodą List<T> GetItems(), kuris nuskaitys inventoriaus informaciją iš failo ir grąžins visus inventoriaus elementus.
     - Sukurkite Warehouse metodą T GetItem(string name), kuris grąžins vieną atitinkamą inventoriaus elementą pagal pavadinimą.
-    - Sukurkite 3 Warehouse klasės objektus, kuriuose saugosite skirtingų tipų (maistas, ginklai, medicina) prekes. !!!
+    - Sukurkite 3 Warehouse klasės objektus, kuriuose saugosite skirtingų tipų (maistas, ginklai, medicina) prekes.
+    + iskviesti AddHeader per konstruktoriu
+    - panaikinti tuscius konstruktorius (nekurti tusciu objektu metoduose, naudoti typeof?)
+    - change date format
+    - Name has 1 space in front
     */
     #endregion
 
@@ -36,13 +40,10 @@
             var sword = new WeaponItem(8, "Kalavijas", 60);
             var bandage = new MedicalItem(0.5, "Bintas", new DateTime(2034, 08, 15), "Minor cuts. Burns. Sprains.");
 
-            //foodWarehouse.AddHeader();
-            //foodWarehouse.AddItem(potatoes);
-            //foodWarehouse.AddItem(carrots);
-            //weaponWarehouse.AddHeader();
-            //weaponWarehouse.AddItem(sword);
-            //medicalWarehouse.AddHeader();
-            //medicalWarehouse.AddItem(bandage);
+            foodWarehouse.AddItem(potatoes);
+            foodWarehouse.AddItem(carrots);
+            weaponWarehouse.AddItem(sword);
+            medicalWarehouse.AddItem(bandage);
 
             var allFood = foodWarehouse.GetItems();
             var allWeapons = weaponWarehouse.GetItems();
@@ -61,8 +62,12 @@
                 Console.WriteLine(medical);
             }
 
-            var carrotsItem = foodWarehouse.GetItem("Morkos");
+            var carrotsItem = foodWarehouse.GetItem("bulves");
+            var bandageItem = medicalWarehouse.GetItem("BintaS");
+
+            Console.WriteLine();
             Console.WriteLine(carrotsItem);
+            Console.WriteLine(bandageItem);
         }
     }
 }
