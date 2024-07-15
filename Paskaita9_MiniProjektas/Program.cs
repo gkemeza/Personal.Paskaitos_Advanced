@@ -21,9 +21,10 @@
     - Sukurkite Warehouse metodą T GetItem(string name), kuris grąžins vieną atitinkamą inventoriaus elementą pagal pavadinimą.
     - Sukurkite 3 Warehouse klasės objektus, kuriuose saugosite skirtingų tipų (maistas, ginklai, medicina) prekes.
     + iskviesti AddHeader per konstruktoriu
-    - panaikinti tuscius konstruktorius (nekurti tusciu objektu metoduose, naudoti typeof?)
     - change date format
     - Name has 1 space in front
+    - remove filepath from string rep
+    - redo
     */
     #endregion
 

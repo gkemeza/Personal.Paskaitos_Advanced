@@ -81,6 +81,10 @@ namespace Paskaita9_MiniProjektas
             var headerNames = new List<string>();
             for (int i = 0; i < properties.Length; i++)
             {
+                if (properties[i].Name == nameof(InventoryItem.FilePath))
+                {
+                    continue;
+                }
                 headerNames.Add(properties[i].Name);
             }
             string headerLine = string.Join(",", headerNames);

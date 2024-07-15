@@ -5,11 +5,13 @@
         public double Weight { get; protected set; }
         public string Name { get; protected set; }
         public string FilePath { get; protected set; }
+
+        // ParseToCsv(line)
     }
 
     internal class FoodItem : InventoryItem
     {
-        private const string filePath = "maistas.csv";
+        private const string filePath = "..\\..\\..\\maistas.csv";
 
         public FoodItem(double weight, string name, DateTime expirationDate, int calories)
         {
@@ -35,7 +37,7 @@
 
     internal class WeaponItem : InventoryItem
     {
-        private const string filePath = "ginklai.csv";
+        private const string filePath = "..\\..\\..\\ginklai.csv";
 
         public WeaponItem(double weight, string name, int damage)
         {
@@ -59,7 +61,7 @@
 
     internal class MedicalItem : InventoryItem
     {
-        private const string filePath = "vaistai.csv";
+        private const string filePath = "..\\..\\..\\vaistai.csv";
 
         public MedicalItem(double weight, string name, DateTime expirationDate, string treatedDiseases)
         {
