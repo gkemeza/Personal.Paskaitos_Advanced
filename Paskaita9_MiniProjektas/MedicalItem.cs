@@ -22,7 +22,7 @@
 
         public override string ToString()
         {
-            return $"{ExpirationDate}, {TreatedDiseases}, {Weight}, {Name}";
+            return $"{Weight},{Name},{ExpirationDate},{TreatedDiseases}";
         }
     }
 }

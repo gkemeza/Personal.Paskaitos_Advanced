@@ -10,9 +10,6 @@ namespace Paskaita9_MiniProjektas
         {
             T tempObj = new T();
             filePath = tempObj.FilePath;
-            // gauna visas klases ypatybes
-            //properties = typeof(T).GetProperties();
-            //AddHeader();
         }
 
         public void AddItem(T item)
@@ -43,21 +40,21 @@ namespace Paskaita9_MiniProjektas
                     var weaponItem = new WeaponItem(
                         double.Parse(columns[0]),
                         columns[1],
-                        int.Parse(columns[3])
+                        int.Parse(columns[2])
                     );
 
                     result.Add((T)(object)weaponItem);
                 }
-                else if (typeof(T) == typeof(WeaponItem))
+                else if (typeof(T) == typeof(MedicalItem))
                 {
-                    var weaponItem = new MedicalItem(
+                    var medicalItem = new MedicalItem(
                         double.Parse(columns[0]),
                         columns[1],
                         DateTime.Parse(columns[2]),
                         columns[3]
                     );
 
-                    result.Add((T)(object)weaponItem);
+                    result.Add((T)(object)medicalItem);
                 }
             }
             return result;

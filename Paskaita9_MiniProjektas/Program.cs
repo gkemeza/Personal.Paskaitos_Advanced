@@ -44,25 +44,25 @@
 
             foodWarehouse.AddItem(potatoes);
             foodWarehouse.AddItem(carrots);
-            //weaponWarehouse.AddItem(sword);
-            //medicalWarehouse.AddItem(bandage);
+            weaponWarehouse.AddItem(sword);
+            medicalWarehouse.AddItem(bandage);
 
             var allFood = foodWarehouse.GetItems();
-            //var allWeapons = weaponWarehouse.GetItems();
-            //var allMedical = medicalWarehouse.GetItems();
+            var allWeapons = weaponWarehouse.GetItems();
+            var allMedical = medicalWarehouse.GetItems();
 
-            //foreach (var food in allFood)
-            //{
-            //    Console.WriteLine(food);
-            //}
-            //foreach (var weapon in allWeapons)
-            //{
-            //    Console.WriteLine(weapon);
-            //}
-            //foreach (var medical in allMedical)
-            //{
-            //    Console.WriteLine(medical);
-            //}
+            foreach (var food in allFood)
+            {
+                Console.WriteLine(food);
+            }
+            foreach (var weapon in allWeapons)
+            {
+                Console.WriteLine(weapon);
+            }
+            foreach (var medical in allMedical)
+            {
+                Console.WriteLine(medical);
+            }
 
             //var carrotsItem = foodWarehouse.GetItem("bulves");
             //var bandageItem = medicalWarehouse.GetItem("BintaS");
