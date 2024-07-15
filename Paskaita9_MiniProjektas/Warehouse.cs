@@ -42,7 +42,6 @@ namespace Paskaita9_MiniProjektas
 
                     if (matchedProperty != null)
                     {
-                        // blogai columns[i]
                         // nustato objekto ypatybės reikšmę
                         matchedProperty.SetValue(itemObj, Convert.ChangeType(columns[i], matchedProperty.PropertyType));
                     }
@@ -54,6 +53,7 @@ namespace Paskaita9_MiniProjektas
 
         public T GetItem(string name)
         {
+
             throw new NotImplementedException();
         }
 

@@ -28,18 +28,40 @@
         static void Main(string[] args)
         {
             var foodWarehouse = new Warehouse<FoodItem>();
-            var potatoes1 = new FoodItem(10, new DateTime(2030, 07, 19), 300);
-            var potatoes2 = new FoodItem(15, new DateTime(2045, 01, 22), 500);
+            var weaponWarehouse = new Warehouse<WeaponItem>();
+            var medicalWarehouse = new Warehouse<MedicalItem>();
+
+            var potatoes = new FoodItem(10, new DateTime(2030, 07, 19), 300);
+            var carrots = new FoodItem(15, new DateTime(2045, 01, 22), 500);
+            var sword = new WeaponItem(8, 60);
+            var bandage = new MedicalItem(0.5, new DateTime(2034, 08, 15), "Minor cuts. Burns. Sprains.");
 
             //foodWarehouse.AddHeader();
-            //foodWarehouse.AddItem(potatoes1);
-            //foodWarehouse.AddItem(potatoes2);
+            //foodWarehouse.AddItem(potatoes);
+            //foodWarehouse.AddItem(carrots);
+            //weaponWarehouse.AddHeader();
+            //weaponWarehouse.AddItem(sword);
+            //medicalWarehouse.AddHeader();
+            //medicalWarehouse.AddItem(bandage);
 
             var allFood = foodWarehouse.GetItems();
+            var allWeapons = weaponWarehouse.GetItems();
+            var allMedical = medicalWarehouse.GetItems();
+
             foreach (var food in allFood)
             {
                 Console.WriteLine(food);
             }
+            foreach (var weapon in allWeapons)
+            {
+                Console.WriteLine(weapon);
+            }
+            foreach (var medical in allMedical)
+            {
+                Console.WriteLine(medical);
+            }
+
+            //var carrots = GetItem("carrots");
         }
     }
 }

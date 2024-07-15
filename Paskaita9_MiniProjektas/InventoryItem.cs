@@ -33,37 +33,41 @@
 
     internal class WeaponItem : InventoryItem
     {
+        private const string filePath = "ginklai.csv";
+
         public WeaponItem(double weight, int damage)
         {
             Weight = weight;
-            FilePath = "ginklai.csv";
+            FilePath = filePath;
             Damage = damage;
         }
         public WeaponItem()
         {
-            FilePath = "ginklai.csv";
+            FilePath = filePath;
         }
 
         public int Damage { get; set; }
 
         public override string ToString()
         {
-            return $"Weight: {Weight}, Damage: {Damage}";
+            return $"{Damage}, {Weight}";
         }
     }
 
     internal class MedicalItem : InventoryItem
     {
+        private const string filePath = "vaistai.csv";
+
         public MedicalItem(double weight, DateTime expirationDate, string treatedDiseases)
         {
             Weight = weight;
-            FilePath = "vaistai.csv";
+            FilePath = filePath;
             ExpirationDate = expirationDate;
             TreatedDiseases = treatedDiseases;
         }
         public MedicalItem()
         {
-            FilePath = "vaistai.csv";
+            FilePath = filePath;
         }
 
         public DateTime ExpirationDate { get; set; }
@@ -71,8 +75,7 @@
 
         public override string ToString()
         {
-            return $"Weight: {Weight}, ExpirationDate: {ExpirationDate}, " +
-                $"TreatedDiseases: {TreatedDiseases}";
+            return $"{ExpirationDate}, {TreatedDiseases}, {Weight}";
         }
     }
 }
