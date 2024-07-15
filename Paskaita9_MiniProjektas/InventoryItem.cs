@@ -2,28 +2,24 @@
 {
     internal abstract class InventoryItem
     {
-        //public InventoryItem(double weight, string filePath)
-        //{
-        //    Weight = weight;
-        //    FilePath = filePath;
-        //}
-
-        public double Weight { get; set; }
+        public double Weight { get; protected set; }
         public string FilePath { get; protected set; }
     }
 
     internal class FoodItem : InventoryItem
     {
+        private const string filePath = "maistas.csv";
+
         public FoodItem(double weight, DateTime expirationDate, int calories)
         {
             Weight = weight;
-            FilePath = "maistas.csv";
+            FilePath = filePath;
             ExpirationDate = expirationDate;
             Calories = calories;
         }
         public FoodItem()
         {
-            FilePath = "maistas.csv";
+            FilePath = filePath;
         }
 
         public int Calories { get; set; }
@@ -31,7 +27,7 @@
 
         public override string ToString()
         {
-            return $"{Weight}, {ExpirationDate}, {Calories}";
+            return $"{Calories}, {ExpirationDate}, {Weight}";
         }
     }
 

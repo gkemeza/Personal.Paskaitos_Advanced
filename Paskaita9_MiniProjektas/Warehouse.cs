@@ -9,52 +9,51 @@ namespace Paskaita9_MiniProjektas
             File.AppendAllText(item.FilePath, item.ToString() + Environment.NewLine);
         }
 
-        // make multiple methods
         public List<T> GetItems()
         {
-            // Create a temporary instance of T to get the FilePath and properties
             T tempObj = new T();
             string filePath = tempObj.FilePath;
+            // gauna visas klases ypatybes
+            var properties = tempObj.GetType().GetProperties();
+
+            var allLines = File.ReadAllLines(filePath).ToList();
+            var headers = allLines[0].Trim().Split(',');
+            allLines.RemoveAt(0);
 
             var result = new List<T>();
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-            List<string> headers = lines[0].Trim().Split(',').ToList();
-            // remove headers
-            lines.RemoveAt(0);
-
-            // get all class properties
-            PropertyInfo[] properties = new T().GetType().GetProperties();
-
-            foreach (var line in lines)
+            foreach (var line in allLines)
             {
-                T item = new T();
-                var columns = line.Trim().Split(',').ToList();
+                T itemObj = new T();
+                var columns = line.Trim().Split(',');
 
-                for (int i = 0; i < columns.Count; i++)
+                for (int i = 0; i < columns.Length; i++)
                 {
-                    string columnHeader = headers[i];
+                    PropertyInfo matchedProperty = null;
 
-                    // ??
-                    // find the matching class property from csv headers
-                    PropertyInfo? matchedProperties = properties
-                        .Where(w => w.Name.ToLower().Equals(columnHeader.ToLower()))
-                        .FirstOrDefault();
-
-                    if (matchedProperties != null)
+                    // randa atitinkamos klasės ypatybę iš csv antraščių
+                    for (int j = 0; j < properties.Length; j++)
                     {
-                        // set object attributes dynamically (convert to the correct attribute type when setting)
-                        matchedProperties.SetValue(item, Convert.ChangeType(columns[i], matchedProperties.PropertyType));
+                        if (string.Equals(properties[j].Name, headers[i], StringComparison.OrdinalIgnoreCase))
+                        {
+                            matchedProperty = properties[j];
+                            break;
+                        }
+                    }
+
+                    if (matchedProperty != null)
+                    {
+                        // blogai columns[i]
+                        // nustato objekto ypatybės reikšmę
+                        matchedProperty.SetValue(itemObj, Convert.ChangeType(columns[i], matchedProperty.PropertyType));
                     }
                 }
-                result.Add(item);
+                result.Add(itemObj);
             }
             return result;
         }
 
-
         public T GetItem(string name)
         {
-            // ??
             throw new NotImplementedException();
         }
 
@@ -62,7 +61,14 @@ namespace Paskaita9_MiniProjektas
         {
             T tempObj = new T();
             string filePath = tempObj.FilePath;
-            string headerLine = string.Join(",", typeof(T).GetProperties().Select(p => p.Name));
+            var properties = tempObj.GetType().GetProperties();
+
+            var headerNames = new List<string>();
+            for (int i = 0; i < properties.Length; i++)
+            {
+                headerNames.Add(properties[i].Name);
+            }
+            string headerLine = string.Join(",", headerNames);
             File.AppendAllText(filePath, headerLine + Environment.NewLine);
         }
     }

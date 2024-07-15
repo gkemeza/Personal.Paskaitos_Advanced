@@ -28,13 +28,18 @@
         static void Main(string[] args)
         {
             var foodWarehouse = new Warehouse<FoodItem>();
-            var potatoes = new FoodItem(10, new DateTime(2050, 01, 05), 500);
+            var potatoes1 = new FoodItem(10, new DateTime(2030, 07, 19), 300);
+            var potatoes2 = new FoodItem(15, new DateTime(2045, 01, 22), 500);
 
             //foodWarehouse.AddHeader();
-            //foodWarehouse.AddItem(potatoes);
-            var allFood = foodWarehouse.GetItems();
+            //foodWarehouse.AddItem(potatoes1);
+            //foodWarehouse.AddItem(potatoes2);
 
-            //File.ReadAllLines(potatoes.FilePath);
+            var allFood = foodWarehouse.GetItems();
+            foreach (var food in allFood)
+            {
+                Console.WriteLine(food);
+            }
         }
     }
 }
