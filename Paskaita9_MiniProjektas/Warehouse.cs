@@ -53,7 +53,42 @@ namespace Paskaita9_MiniProjektas
 
         public T GetItem(string name)
         {
+            T tempObj = new T();
+            string filePath = tempObj.FilePath;
+            // gauna visas klases ypatybes
+            var properties = tempObj.GetType().GetProperties();
 
+            var allLines = File.ReadAllLines(filePath).ToList();
+            var headers = allLines[0].Trim().Split(',');
+            allLines.RemoveAt(0);
+
+            var result = new List<T>();
+            foreach (var line in allLines)
+            {
+                T itemObj = new T();
+                var columns = line.Trim().Split(',');
+
+                for (int i = 0; i < columns.Length; i++)
+                {
+                    PropertyInfo matchedProperty = null;
+
+                    // randa atitinkamos klasės ypatybę iš csv antraščių
+                    for (int j = 0; j < properties.Length; j++)
+                    {
+                        if (string.Equals(properties[j].Name, headers[i], StringComparison.OrdinalIgnoreCase))
+                        {
+                            matchedProperty = properties[j];
+                            break;
+                        }
+                    }
+
+                    if (matchedProperty != null)
+                    {
+                        // nustato objekto ypatybės reikšmę
+                        matchedProperty.SetValue(itemObj, Convert.ChangeType(columns[i], matchedProperty.PropertyType));
+                    }
+                }
+            }
             throw new NotImplementedException();
         }
 

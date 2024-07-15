@@ -31,10 +31,10 @@
             var weaponWarehouse = new Warehouse<WeaponItem>();
             var medicalWarehouse = new Warehouse<MedicalItem>();
 
-            var potatoes = new FoodItem(10, new DateTime(2030, 07, 19), 300);
-            var carrots = new FoodItem(15, new DateTime(2045, 01, 22), 500);
-            var sword = new WeaponItem(8, 60);
-            var bandage = new MedicalItem(0.5, new DateTime(2034, 08, 15), "Minor cuts. Burns. Sprains.");
+            var potatoes = new FoodItem(10, "Bulves", new DateTime(2030, 07, 19), 300);
+            var carrots = new FoodItem(15, "Morkos", new DateTime(2045, 01, 22), 500);
+            var sword = new WeaponItem(8, "Kalavijas", 60);
+            var bandage = new MedicalItem(0.5, "Bintas", new DateTime(2034, 08, 15), "Minor cuts. Burns. Sprains.");
 
             //foodWarehouse.AddHeader();
             //foodWarehouse.AddItem(potatoes);

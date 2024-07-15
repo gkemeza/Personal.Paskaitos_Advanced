@@ -3,6 +3,7 @@
     internal abstract class InventoryItem
     {
         public double Weight { get; protected set; }
+        public string Name { get; protected set; }
         public string FilePath { get; protected set; }
     }
 
@@ -10,9 +11,10 @@
     {
         private const string filePath = "maistas.csv";
 
-        public FoodItem(double weight, DateTime expirationDate, int calories)
+        public FoodItem(double weight, string name, DateTime expirationDate, int calories)
         {
             Weight = weight;
+            Name = name;
             FilePath = filePath;
             ExpirationDate = expirationDate;
             Calories = calories;
@@ -27,7 +29,7 @@
 
         public override string ToString()
         {
-            return $"{Calories}, {ExpirationDate}, {Weight}";
+            return $"{Calories}, {ExpirationDate}, {Weight}, {Name}";
         }
     }
 
@@ -35,9 +37,10 @@
     {
         private const string filePath = "ginklai.csv";
 
-        public WeaponItem(double weight, int damage)
+        public WeaponItem(double weight, string name, int damage)
         {
             Weight = weight;
+            Name = name;
             FilePath = filePath;
             Damage = damage;
         }
@@ -50,7 +53,7 @@
 
         public override string ToString()
         {
-            return $"{Damage}, {Weight}";
+            return $"{Damage}, {Weight}, {Name}";
         }
     }
 
@@ -58,9 +61,10 @@
     {
         private const string filePath = "vaistai.csv";
 
-        public MedicalItem(double weight, DateTime expirationDate, string treatedDiseases)
+        public MedicalItem(double weight, string name, DateTime expirationDate, string treatedDiseases)
         {
             Weight = weight;
+            Name = name;
             FilePath = filePath;
             ExpirationDate = expirationDate;
             TreatedDiseases = treatedDiseases;
@@ -75,7 +79,7 @@
 
         public override string ToString()
         {
-            return $"{ExpirationDate}, {TreatedDiseases}, {Weight}";
+            return $"{ExpirationDate}, {TreatedDiseases}, {Weight}, {Name}";
         }
     }
 }
