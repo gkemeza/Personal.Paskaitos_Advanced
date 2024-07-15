@@ -46,50 +46,26 @@ namespace Paskaita9_MiniProjektas
                         matchedProperty.SetValue(itemObj, Convert.ChangeType(columns[i], matchedProperty.PropertyType));
                     }
                 }
+
                 result.Add(itemObj);
             }
+
             return result;
         }
 
         public T GetItem(string name)
         {
-            T tempObj = new T();
-            string filePath = tempObj.FilePath;
-            // gauna visas klases ypatybes
-            var properties = tempObj.GetType().GetProperties();
+            var allItems = GetItems();
 
-            var allLines = File.ReadAllLines(filePath).ToList();
-            var headers = allLines[0].Trim().Split(',');
-            allLines.RemoveAt(0);
-
-            var result = new List<T>();
-            foreach (var line in allLines)
+            foreach (var item in allItems)
             {
-                T itemObj = new T();
-                var columns = line.Trim().Split(',');
-
-                for (int i = 0; i < columns.Length; i++)
+                if (string.Equals(item.Name.Trim(), name.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
-                    PropertyInfo matchedProperty = null;
-
-                    // randa atitinkamos klasės ypatybę iš csv antraščių
-                    for (int j = 0; j < properties.Length; j++)
-                    {
-                        if (string.Equals(properties[j].Name, headers[i], StringComparison.OrdinalIgnoreCase))
-                        {
-                            matchedProperty = properties[j];
-                            break;
-                        }
-                    }
-
-                    if (matchedProperty != null)
-                    {
-                        // nustato objekto ypatybės reikšmę
-                        matchedProperty.SetValue(itemObj, Convert.ChangeType(columns[i], matchedProperty.PropertyType));
-                    }
+                    return item;
                 }
             }
-            throw new NotImplementedException();
+
+            throw new ArgumentException("Tokio vardo nera");
         }
 
         public void AddHeader()

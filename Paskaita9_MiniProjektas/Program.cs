@@ -61,7 +61,8 @@
                 Console.WriteLine(medical);
             }
 
-            //var carrots = GetItem("carrots");
+            var carrotsItem = foodWarehouse.GetItem("Morkos");
+            Console.WriteLine(carrotsItem);
         }
     }
 }
