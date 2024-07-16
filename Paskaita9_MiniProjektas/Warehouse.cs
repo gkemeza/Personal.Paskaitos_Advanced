@@ -1,13 +1,13 @@
 ﻿namespace Paskaita9_MiniProjektas
 {
-    internal class Warehouse<T> where T : InventoryItem
+    internal class Warehouse<T> where T : InventoryItem, new()
     {
-        private readonly string filePath;
+        private readonly string _filePath;
 
         public Warehouse()
         {
-            T itemObject = (T)Activator.CreateInstance(typeof(T));
-            filePath = itemObject.FilePath;
+            T itemObject = new T();
+            _filePath = itemObject.FilePath;
         }
 
         public void AddItem(T item)
@@ -17,21 +17,24 @@
 
         public List<T> GetItems()
         {
-            if (File.Exists(filePath))
+            if (File.Exists(_filePath))
             {
-                var allCsvLines = File.ReadAllLines(filePath).ToList();
+                string[] allCsvLines = File.ReadAllLines(_filePath);
 
                 var items = new List<T>();
                 foreach (var csvLine in allCsvLines)
                 {
-                    T itemObject = (T)Activator.CreateInstance(typeof(T));
-                    itemObject.ParseFromCsv(csvLine);
-                    items.Add(itemObject);
+                    if (!string.IsNullOrEmpty(csvLine))
+                    {
+                        T itemObject = new T();
+                        itemObject.ParseFromCsv(csvLine);
+                        items.Add(itemObject);
+                    }
                 }
                 return items;
             }
 
-            throw new FileNotFoundException($"File at '{filePath}' not found");
+            throw new FileNotFoundException($"File at '{_filePath}' not found");
         }
 
         public T GetItem(string name)

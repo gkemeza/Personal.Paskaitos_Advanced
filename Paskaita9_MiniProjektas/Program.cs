@@ -1,4 +1,6 @@
-﻿namespace Paskaita9_MiniProjektas
+﻿using System.Globalization;
+
+namespace Paskaita9_MiniProjektas
 {
     #region UŽDUOTIS Orientuota į TAIKYMO kognityvinį lygį
     /*mini projektas
@@ -27,6 +29,21 @@
     {
         static void Main(string[] args)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("lt-LT");
+
+            // Get the current culture
+            CultureInfo currentCulture = CultureInfo.CurrentCulture;
+
+            // Display culture information
+            Console.WriteLine($"Current culture: {currentCulture.Name}");
+            Console.WriteLine($"Display name: {currentCulture.DisplayName}");
+            Console.WriteLine($"English name: {currentCulture.EnglishName}");
+            Console.WriteLine($"Decimal separator: {currentCulture.NumberFormat.NumberDecimalSeparator}");
+
+            // Example of how a number is formatted
+            double number = 1234.56;
+            Console.WriteLine($"Example number: {number.ToString("N2", currentCulture)}");
+
             var foodWarehouse = new Warehouse<FoodItem>();
             var weaponWarehouse = new Warehouse<WeaponItem>();
             var medicalWarehouse = new Warehouse<MedicalItem>();

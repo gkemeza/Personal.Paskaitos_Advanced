@@ -1,4 +1,6 @@
-﻿namespace Paskaita9_MiniProjektas
+﻿using System.Globalization;
+
+namespace Paskaita9_MiniProjektas
 {
     internal class MedicalItem : InventoryItem
     {
@@ -20,7 +22,7 @@
 
         public override string ParseToCsv()
         {
-            return $"{Name}, {Weight}kg, {ExpirationDate:yyy-MM-dd}, {TreatedDiseases}";
+            return $"{Name}, {Weight.ToString(CultureInfo.InvariantCulture)}kg, {ExpirationDate.ToString(new CultureInfo("lt-LT"))}, {TreatedDiseases}";
         }
 
         public override void ParseFromCsv(string line)
@@ -30,7 +32,7 @@
             if (columns.Length == 4)
             {
                 Name = columns[0].Trim();
-                Weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'));
+                Weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'), CultureInfo.InvariantCulture);
                 ExpirationDate = DateOnly.Parse(columns[2].Trim());
                 TreatedDiseases = columns[3].Trim();
             }

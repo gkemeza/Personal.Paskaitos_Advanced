@@ -1,4 +1,6 @@
-﻿namespace Paskaita9_MiniProjektas
+﻿using System.Globalization;
+
+namespace Paskaita9_MiniProjektas
 {
     internal class WeaponItem : InventoryItem
     {
@@ -18,7 +20,7 @@
 
         public override string ParseToCsv()
         {
-            return $"{Name}, {Weight}kg, {Damage}dmg";
+            return $"{Name}, {Weight.ToString(CultureInfo.InvariantCulture)}kg, {Damage}dmg";
         }
 
         public override void ParseFromCsv(string line)
@@ -27,7 +29,7 @@
             if (columns.Length == 3)
             {
                 Name = columns[0].Trim();
-                Weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'));
+                Weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'), CultureInfo.InvariantCulture);
                 Damage = int.Parse(columns[2].Trim().TrimEnd('d', 'm', 'g'));
             }
         }
