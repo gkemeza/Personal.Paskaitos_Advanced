@@ -33,39 +33,49 @@
             var weaponWarehouse = new Warehouse<WeaponItem>();
             var medicalWarehouse = new Warehouse<MedicalItem>();
 
-            var potatoes = new FoodItem(10, "Bulves", new DateOnly(2030, 07, 19), 300);
-            var carrots = new FoodItem(15, "Morkos", new DateOnly(2045, 01, 22), 500);
-            var sword = new WeaponItem(8, "Kalavijas", 60);
-            var bandage = new MedicalItem(0.5, "Bintas", new DateOnly(2034, 08, 15), "Minor cuts. Burns. Sprains.");
+            var potatoes = new FoodItem("Bulves", 10, new DateOnly(2030, 07, 19), 300);
+            var carrots = new FoodItem("Morkos", 15, new DateOnly(2045, 01, 22), 500);
 
-            foodWarehouse.AddItem(potatoes);
-            foodWarehouse.AddItem(carrots);
+            var sword = new WeaponItem("Kalavijas", 6, 60);
+            var knife = new WeaponItem("Peilis", 0.8, 20);
+
+            var bandage = new MedicalItem("Bintas", 0.5, new DateOnly(2034, 08, 15), "Minor cuts. Burns. Sprains.");
+            var painkiller = new MedicalItem("Nuskausminamieji", 0.5, new DateOnly(2028, 01, 01), "Sprains. Sunburns. Arthritis.");
+
+            //foodWarehouse.AddItem(potatoes);
+            //foodWarehouse.AddItem(carrots);
+
             //weaponWarehouse.AddItem(sword);
+            //weaponWarehouse.AddItem(knife);
+
             //medicalWarehouse.AddItem(bandage);
+            //medicalWarehouse.AddItem(painkiller);
 
-            //var allFood = foodWarehouse.GetItems();
-            //var allWeapons = weaponWarehouse.GetItems();
-            //var allMedical = medicalWarehouse.GetItems();
+            var allFood = foodWarehouse.GetItems();
+            var allWeapons = weaponWarehouse.GetItems();
+            var allMedical = medicalWarehouse.GetItems();
 
-            //foreach (var food in allFood)
-            //{
-            //    Console.WriteLine(food);
-            //}
-            //foreach (var weapon in allWeapons)
-            //{
-            //    Console.WriteLine(weapon);
-            //}
-            //foreach (var medical in allMedical)
-            //{
-            //    Console.WriteLine(medical);
-            //}
+            foreach (var food in allFood)
+            {
+                Console.WriteLine(food);
+            }
+            foreach (var weapon in allWeapons)
+            {
+                Console.WriteLine(weapon);
+            }
+            foreach (var medical in allMedical)
+            {
+                Console.WriteLine(medical);
+            }
 
-            //var carrotsItem = foodWarehouse.GetItem("bulves");
-            //var bandageItem = medicalWarehouse.GetItem("BintaS");
+            var carrotsItem = foodWarehouse.GetItem("morkos");
+            var knifeItem = weaponWarehouse.GetItem("peilis");
+            var painkillerItem = medicalWarehouse.GetItem("nuskausminamieji");
 
-            //Console.WriteLine();
-            //Console.WriteLine(carrotsItem);
-            //Console.WriteLine(bandageItem);
+            Console.WriteLine();
+            Console.WriteLine(carrotsItem);
+            Console.WriteLine(knifeItem);
+            Console.WriteLine(painkillerItem);
         }
     }
 }
