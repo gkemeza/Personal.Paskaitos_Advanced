@@ -22,5 +22,10 @@
         {
             return $"{Weight},{Name},{Damage}";
         }
+
+        public override string ParseToCsv(InventoryItem item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

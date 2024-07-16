@@ -12,7 +12,7 @@
 
         public void AddItem(T item)
         {
-            File.AppendAllText(item.FilePath, item + Environment.NewLine);
+            File.AppendAllText(item.FilePath, item.ParseToCsv(item));
         }
 
         public List<T> GetItems()
@@ -79,6 +79,11 @@
             }
 
             throw new ArgumentException("Tokio vardo nera");
+        }
+
+        public string ParseFromCsv()
+        {
+            throw new NotImplementedException();
         }
     }
 }

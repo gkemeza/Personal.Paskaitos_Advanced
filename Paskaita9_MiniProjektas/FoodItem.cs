@@ -24,5 +24,10 @@
         {
             return $"{Weight},{Name},{ExpirationDate},{Calories}";
         }
+
+        public override string ParseToCsv(InventoryItem item)
+        {
+            return $"{Name}, {Weight}kg, {ExpirationDate}, {Calories}kcal" + Environment.NewLine;
+        }
     }
 }

@@ -24,5 +24,10 @@
         {
             return $"{Weight},{Name},{ExpirationDate},{TreatedDiseases}";
         }
+
+        public override string ParseToCsv(InventoryItem item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

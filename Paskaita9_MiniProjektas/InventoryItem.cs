@@ -6,6 +6,6 @@
         public string Name { get; protected set; }
         public string FilePath { get; protected set; }
 
-        // ParseToCsv(line)
+        public abstract string ParseToCsv(InventoryItem item);
     }
 }
