@@ -37,8 +37,8 @@
             var sword = new WeaponItem("Kalavijas", 6, 60);
             var knife = new WeaponItem("Peilis", 0.8, 20);
 
-            var bandage = new MedicalItem("Bintas", 0.5, new DateOnly(2034, 08, 15), "Minor cuts. Burns. Sprains.");
-            var painkiller = new MedicalItem("Nuskausminamieji", 0.5, new DateOnly(2028, 01, 01), "Sprains. Sunburns. Arthritis.");
+            var bandage = new MedicalItem("Bintas", 0.2, new DateOnly(2034, 08, 15), "Minor cuts. Burns. Sprains.");
+            var painkiller = new MedicalItem("Nuskausminamieji", 0.1, new DateOnly(2028, 01, 01), "Sprains. Sunburns. Arthritis.");
 
             foodWarehouse.AddItem(potatoes);
             foodWarehouse.AddItem(carrots);
@@ -53,27 +53,9 @@
             var allWeapons = weaponWarehouse.GetItems();
             var allMedical = medicalWarehouse.GetItems();
 
-            foreach (var food in allFood)
-            {
-                Console.WriteLine(food);
-            }
-            foreach (var weapon in allWeapons)
-            {
-                Console.WriteLine(weapon);
-            }
-            foreach (var medical in allMedical)
-            {
-                Console.WriteLine(medical);
-            }
-
             var carrotsItem = foodWarehouse.GetItem("morkos");
             var knifeItem = weaponWarehouse.GetItem("peilis");
             var painkillerItem = medicalWarehouse.GetItem("nuskausminamieji");
-
-            Console.WriteLine();
-            Console.WriteLine(carrotsItem);
-            Console.WriteLine(knifeItem);
-            Console.WriteLine(painkillerItem);
         }
     }
 }
