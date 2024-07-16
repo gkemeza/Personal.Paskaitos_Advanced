@@ -4,7 +4,7 @@
     {
         private const string filePath = @"..\..\..\maistas.csv";
 
-        public FoodItem(double weight, string name, DateTime expirationDate, int calories)
+        public FoodItem(double weight, string name, DateOnly expirationDate, int calories)
         {
             Weight = weight;
             Name = name;
@@ -18,7 +18,7 @@
         }
 
         public int Calories { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public DateOnly ExpirationDate { get; set; }
 
         public override string ToString()
         {

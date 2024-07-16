@@ -4,7 +4,7 @@
     {
         private const string filePath = @"..\..\..\vaistai.csv";
 
-        public MedicalItem(double weight, string name, DateTime expirationDate, string treatedDiseases)
+        public MedicalItem(double weight, string name, DateOnly expirationDate, string treatedDiseases)
         {
             Weight = weight;
             Name = name;
@@ -17,7 +17,7 @@
             FilePath = filePath;
         }
 
-        public DateTime ExpirationDate { get; set; }
+        public DateOnly ExpirationDate { get; set; }
         public string TreatedDiseases { get; set; }
 
         public override string ToString()

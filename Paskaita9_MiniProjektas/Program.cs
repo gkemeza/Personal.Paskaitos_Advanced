@@ -37,10 +37,10 @@
             var weaponWarehouse = new Warehouse<WeaponItem>();
             var medicalWarehouse = new Warehouse<MedicalItem>();
 
-            var potatoes = new FoodItem(10, "Bulves", new DateTime(2030, 07, 19), 300);
-            var carrots = new FoodItem(15, "Morkos", new DateTime(2045, 01, 22), 500);
+            var potatoes = new FoodItem(10, "Bulves", new DateOnly(2030, 07, 19), 300);
+            var carrots = new FoodItem(15, "Morkos", new DateOnly(2045, 01, 22), 500);
             var sword = new WeaponItem(8, "Kalavijas", 60);
-            var bandage = new MedicalItem(0.5, "Bintas", new DateTime(2034, 08, 15), "Minor cuts. Burns. Sprains.");
+            var bandage = new MedicalItem(0.5, "Bintas", new DateOnly(2034, 08, 15), "Minor cuts. Burns. Sprains.");
 
             foodWarehouse.AddItem(potatoes);
             foodWarehouse.AddItem(carrots);
@@ -64,12 +64,12 @@
                 Console.WriteLine(medical);
             }
 
-            //var carrotsItem = foodWarehouse.GetItem("bulves");
-            //var bandageItem = medicalWarehouse.GetItem("BintaS");
+            var carrotsItem = foodWarehouse.GetItem("bulves");
+            var bandageItem = medicalWarehouse.GetItem("BintaS");
 
-            //Console.WriteLine();
-            //Console.WriteLine(carrotsItem);
-            //Console.WriteLine(bandageItem);
+            Console.WriteLine();
+            Console.WriteLine(carrotsItem);
+            Console.WriteLine(bandageItem);
         }
     }
 }

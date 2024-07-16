@@ -29,7 +29,7 @@ namespace Paskaita9_MiniProjektas
                     var foodItem = new FoodItem(
                         double.Parse(columns[0]),
                         columns[1],
-                        DateTime.Parse(columns[2]),
+                        DateOnly.Parse(columns[2]),
                         int.Parse(columns[3])
                     );
 
@@ -50,7 +50,7 @@ namespace Paskaita9_MiniProjektas
                     var medicalItem = new MedicalItem(
                         double.Parse(columns[0]),
                         columns[1],
-                        DateTime.Parse(columns[2]),
+                        DateOnly.Parse(columns[2]),
                         columns[3]
                     );
 
