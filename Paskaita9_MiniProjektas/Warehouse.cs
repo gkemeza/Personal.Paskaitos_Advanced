@@ -6,8 +6,7 @@
 
         public Warehouse()
         {
-            T tempObj = new T();
-            filePath = tempObj.FilePath;
+            filePath = new T().FilePath;
         }
 
         public void AddItem(T item)
@@ -17,13 +16,14 @@
 
         public List<T> GetItems()
         {
-            var allLines = File.ReadAllLines(filePath).ToList();
-            var result = new List<T>();
-            foreach (var line in allLines)
+            var allCsvLines = File.ReadAllLines(filePath).ToList();
+
+            var items = new List<T>();
+            foreach (var csvLine in allCsvLines)
             {
-                result.Add(ParseFromCsv(line));
+                items.Add(ParseFromCsv(csvLine));
             }
-            return result;
+            return items;
         }
 
         public T GetItem(string name)
@@ -38,12 +38,13 @@
                 }
             }
 
-            throw new ArgumentException("There is no such name");
+            throw new ArgumentException($"Item with name '{name}' not found.");
         }
 
-        private T ParseFromCsv(string line)
+        private T ParseFromCsv(string csvLine)
         {
-            var columns = line.Trim().Split(',');
+            var columns = csvLine.Trim().Split(',');
+
             if (typeof(T) == typeof(FoodItem))
             {
                 if (columns.Length == 4)
