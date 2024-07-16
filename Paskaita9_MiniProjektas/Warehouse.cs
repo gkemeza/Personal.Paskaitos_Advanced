@@ -1,6 +1,4 @@
-﻿//using System.Reflection;
-
-namespace Paskaita9_MiniProjektas
+﻿namespace Paskaita9_MiniProjektas
 {
     internal class Warehouse<T> where T : InventoryItem, new()
     {
@@ -26,35 +24,43 @@ namespace Paskaita9_MiniProjektas
                 var columns = line.Trim().Split(',');
                 if (typeof(T) == typeof(FoodItem))
                 {
-                    var foodItem = new FoodItem(
-                        double.Parse(columns[0]),
-                        columns[1],
-                        DateOnly.Parse(columns[2]),
-                        int.Parse(columns[3])
-                    );
+                    if (columns.Length == 4)
+                    {
+                        var foodItem = new FoodItem(
+                            double.Parse(columns[0]),
+                            columns[1],
+                            DateOnly.Parse(columns[2]),
+                            int.Parse(columns[3])
+                        );
+                        result.Add((T)(object)foodItem);
+                    }
 
-                    result.Add((T)(object)foodItem);
                 }
                 else if (typeof(T) == typeof(WeaponItem))
                 {
-                    var weaponItem = new WeaponItem(
-                        double.Parse(columns[0]),
-                        columns[1],
-                        int.Parse(columns[2])
-                    );
-
-                    result.Add((T)(object)weaponItem);
+                    if (columns.Length == 3)
+                    {
+                        var weaponItem = new WeaponItem(
+                            double.Parse(columns[0]),
+                            columns[1],
+                            int.Parse(columns[2])
+                        );
+                        result.Add((T)(object)weaponItem);
+                    }
                 }
                 else if (typeof(T) == typeof(MedicalItem))
                 {
-                    var medicalItem = new MedicalItem(
-                        double.Parse(columns[0]),
-                        columns[1],
-                        DateOnly.Parse(columns[2]),
-                        columns[3]
-                    );
+                    if (columns.Length == 4)
+                    {
+                        var medicalItem = new MedicalItem(
+                            double.Parse(columns[0]),
+                            columns[1],
+                            DateOnly.Parse(columns[2]),
+                            columns[3]
+                        );
+                        result.Add((T)(object)medicalItem);
+                    }
 
-                    result.Add((T)(object)medicalItem);
                 }
             }
             return result;
