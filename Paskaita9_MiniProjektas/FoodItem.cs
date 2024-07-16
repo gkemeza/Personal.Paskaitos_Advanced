@@ -2,6 +2,14 @@
 {
     internal class FoodItem : InventoryItem
     {
+        private int Calories { get; set; }
+        private DateOnly ExpirationDate { get; set; }
+        public override string FilePath { get; protected set; } = @"..\..\..\maistas.csv";
+
+        public FoodItem()
+        {
+        }
+
         public FoodItem(string name, double weight, DateOnly expirationDate, int calories)
         {
             Name = name;
@@ -9,13 +17,6 @@
             ExpirationDate = expirationDate;
             Calories = calories;
         }
-        public FoodItem()
-        {
-        }
-
-        private int Calories { get; set; }
-        private DateOnly ExpirationDate { get; set; }
-        public override string FilePath { get; protected set; } = @"..\..\..\maistas.csv";
 
         public override string ParseToCsv()
         {

@@ -2,18 +2,19 @@
 {
     internal class WeaponItem : InventoryItem
     {
+        private int Damage { get; set; }
+        public override string FilePath { get; protected set; } = @"..\..\..\ginklai.csv";
+
+        public WeaponItem()
+        {
+        }
+
         public WeaponItem(string name, double weight, int damage)
         {
             Name = name;
             Weight = weight;
             Damage = damage;
         }
-        public WeaponItem()
-        {
-        }
-
-        private int Damage { get; set; }
-        public override string FilePath { get; protected set; } = @"..\..\..\ginklai.csv";
 
         public override string ParseToCsv()
         {

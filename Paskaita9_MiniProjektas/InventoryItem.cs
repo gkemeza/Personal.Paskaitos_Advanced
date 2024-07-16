@@ -3,7 +3,7 @@
     internal abstract class InventoryItem
     {
         public string Name { get; protected set; }
-        public double Weight { get; protected set; }
+        protected double Weight { get; set; }
         public abstract string FilePath { get; protected set; }
 
         public abstract string ParseToCsv();

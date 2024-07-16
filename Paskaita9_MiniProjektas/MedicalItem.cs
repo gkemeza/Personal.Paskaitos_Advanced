@@ -2,6 +2,14 @@
 {
     internal class MedicalItem : InventoryItem
     {
+        private DateOnly ExpirationDate { get; set; }
+        private string TreatedDiseases { get; set; }
+        public override string FilePath { get; protected set; } = @"..\..\..\vaistai.csv";
+
+        public MedicalItem()
+        {
+        }
+
         public MedicalItem(string name, double weight, DateOnly expirationDate, string treatedDiseases)
         {
             Name = name;
@@ -9,13 +17,6 @@
             ExpirationDate = expirationDate;
             TreatedDiseases = treatedDiseases;
         }
-        public MedicalItem()
-        {
-        }
-
-        private DateOnly ExpirationDate { get; set; }
-        private string TreatedDiseases { get; set; }
-        public override string FilePath { get; protected set; } = @"..\..\..\vaistai.csv";
 
         public override string ParseToCsv()
         {
