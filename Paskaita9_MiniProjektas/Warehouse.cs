@@ -12,7 +12,7 @@
 
         public void AddItem(T item)
         {
-            File.AppendAllText(item.FilePath, item.ParseToCsv());
+            File.AppendAllText(item.FilePath, item.ParseToCsv() + Environment.NewLine);
         }
 
         public List<T> GetItems()

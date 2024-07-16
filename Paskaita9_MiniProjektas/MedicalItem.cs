@@ -20,13 +20,12 @@
 
         public override string ParseToCsv()
         {
-            return $"{Name}, {Weight}kg, {ExpirationDate}, {TreatedDiseases}" +
-                Environment.NewLine;
+            return $"{Name}, {Weight}kg, {ExpirationDate:yyy-MM-dd}, {TreatedDiseases}";
         }
 
         public override void ParseFromCsv(string line)
         {
-            var columns = line.Trim().Split(',');
+            var columns = line.Split(',');
 
             if (columns.Length == 4)
             {

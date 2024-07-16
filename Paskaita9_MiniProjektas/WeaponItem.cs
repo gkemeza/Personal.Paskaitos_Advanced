@@ -18,7 +18,7 @@
 
         public override string ParseToCsv()
         {
-            return $"{Name}, {Weight}kg, {Damage}dmg {Environment.NewLine}";
+            return $"{Name}, {Weight}kg, {Damage}dmg";
         }
 
         public override void ParseFromCsv(string line)

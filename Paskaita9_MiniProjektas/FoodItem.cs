@@ -20,8 +20,7 @@
 
         public override string ParseToCsv()
         {
-            return $"{Name}, {Weight}kg, {ExpirationDate}, {Calories}kcal" +
-                Environment.NewLine;
+            return $"{Name}, {Weight}kg, {ExpirationDate:yyy-MM-dd}, {Calories}kcal";
         }
 
         public override void ParseFromCsv(string line)
