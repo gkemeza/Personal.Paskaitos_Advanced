@@ -20,8 +20,6 @@
     - Sukurkite Warehouse metodą List<T> GetItems(), kuris nuskaitys inventoriaus informaciją iš failo ir grąžins visus inventoriaus elementus.
     - Sukurkite Warehouse metodą T GetItem(string name), kuris grąžins vieną atitinkamą inventoriaus elementą pagal pavadinimą.
     - Sukurkite 3 Warehouse klasės objektus, kuriuose saugosite skirtingų tipų (maistas, ginklai, medicina) prekes.
-    ~ change date format
-    - maybe use Object Initializer Syntax instead of constructor?
     */
     #endregion
 
@@ -42,14 +40,14 @@
             var bandage = new MedicalItem("Bintas", 0.5, new DateOnly(2034, 08, 15), "Minor cuts. Burns. Sprains.");
             var painkiller = new MedicalItem("Nuskausminamieji", 0.5, new DateOnly(2028, 01, 01), "Sprains. Sunburns. Arthritis.");
 
-            //foodWarehouse.AddItem(potatoes);
-            //foodWarehouse.AddItem(carrots);
+            foodWarehouse.AddItem(potatoes);
+            foodWarehouse.AddItem(carrots);
 
-            //weaponWarehouse.AddItem(sword);
-            //weaponWarehouse.AddItem(knife);
+            weaponWarehouse.AddItem(sword);
+            weaponWarehouse.AddItem(knife);
 
-            //medicalWarehouse.AddItem(bandage);
-            //medicalWarehouse.AddItem(painkiller);
+            medicalWarehouse.AddItem(bandage);
+            medicalWarehouse.AddItem(painkiller);
 
             var allFood = foodWarehouse.GetItems();
             var allWeapons = weaponWarehouse.GetItems();

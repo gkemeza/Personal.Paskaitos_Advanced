@@ -17,8 +17,8 @@
             FilePath = filePath;
         }
 
-        public DateOnly ExpirationDate { get; set; }
-        public string TreatedDiseases { get; set; }
+        public DateOnly ExpirationDate { get; private set; }
+        public string TreatedDiseases { get; private set; }
 
         public override string ToString()
         {

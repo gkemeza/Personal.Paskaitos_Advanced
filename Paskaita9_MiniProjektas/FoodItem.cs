@@ -17,8 +17,8 @@
             FilePath = filePath;
         }
 
-        public int Calories { get; set; }
-        public DateOnly ExpirationDate { get; set; }
+        public int Calories { get; private set; }
+        public DateOnly ExpirationDate { get; private set; }
 
         public override string ToString()
         {

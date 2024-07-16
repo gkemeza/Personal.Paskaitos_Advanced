@@ -38,10 +38,10 @@
                 }
             }
 
-            throw new ArgumentException("Tokio vardo nera");
+            throw new ArgumentException("There is no such name");
         }
 
-        public T ParseFromCsv(string line)
+        private T ParseFromCsv(string line)
         {
             var columns = line.Trim().Split(',');
             if (typeof(T) == typeof(FoodItem))
@@ -80,7 +80,7 @@
                 }
             }
 
-            throw new ArgumentException();
+            throw new Exception();
         }
     }
 }

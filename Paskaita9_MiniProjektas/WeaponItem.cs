@@ -16,7 +16,7 @@
             FilePath = filePath;
         }
 
-        public int Damage { get; set; }
+        public int Damage { get; private set; }
 
         public override string ToString()
         {
