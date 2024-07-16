@@ -4,10 +4,10 @@
     {
         private const string filePath = @"..\..\..\maistas.csv";
 
-        public FoodItem(double weight, string name, DateOnly expirationDate, int calories)
+        public FoodItem(string name, double weight, DateOnly expirationDate, int calories)
         {
-            Weight = weight;
             Name = name;
+            Weight = weight;
             FilePath = filePath;
             ExpirationDate = expirationDate;
             Calories = calories;
@@ -22,12 +22,13 @@
 
         public override string ToString()
         {
-            return $"{Weight},{Name},{ExpirationDate},{Calories}";
+            return $"{Name}, {Weight}kg, {ExpirationDate}, {Calories}kcal";
         }
 
-        public override string ParseToCsv(InventoryItem item)
+        public override string ParseToCsv()
         {
-            return $"{Name}, {Weight}kg, {ExpirationDate}, {Calories}kcal" + Environment.NewLine;
+            return $"{Name}, {Weight}kg, {ExpirationDate}, {Calories}kcal" +
+                Environment.NewLine;
         }
     }
 }

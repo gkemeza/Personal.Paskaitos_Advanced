@@ -4,10 +4,10 @@
     {
         private const string filePath = @"..\..\..\ginklai.csv";
 
-        public WeaponItem(double weight, string name, int damage)
+        public WeaponItem(string name, double weight, int damage)
         {
-            Weight = weight;
             Name = name;
+            Weight = weight;
             FilePath = filePath;
             Damage = damage;
         }
@@ -20,12 +20,12 @@
 
         public override string ToString()
         {
-            return $"{Weight},{Name},{Damage}";
+            return $"{Name}, {Weight}kg, {Damage}dmg";
         }
 
-        public override string ParseToCsv(InventoryItem item)
+        public override string ParseToCsv()
         {
-            throw new NotImplementedException();
+            return $"{Name}, {Weight}kg, {Damage}dmg {Environment.NewLine}";
         }
     }
 }

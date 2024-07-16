@@ -4,10 +4,10 @@
     {
         private const string filePath = @"..\..\..\vaistai.csv";
 
-        public MedicalItem(double weight, string name, DateOnly expirationDate, string treatedDiseases)
+        public MedicalItem(string name, double weight, DateOnly expirationDate, string treatedDiseases)
         {
-            Weight = weight;
             Name = name;
+            Weight = weight;
             FilePath = filePath;
             ExpirationDate = expirationDate;
             TreatedDiseases = treatedDiseases;
@@ -22,12 +22,13 @@
 
         public override string ToString()
         {
-            return $"{Weight},{Name},{ExpirationDate},{TreatedDiseases}";
+            return $"{Name}, {Weight}kg, {ExpirationDate}, {TreatedDiseases}";
         }
 
-        public override string ParseToCsv(InventoryItem item)
+        public override string ParseToCsv()
         {
-            throw new NotImplementedException();
+            return $"{Name}, {Weight}kg, {ExpirationDate}, {TreatedDiseases}" +
+                Environment.NewLine;
         }
     }
 }
