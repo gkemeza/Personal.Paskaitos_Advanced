@@ -12,7 +12,7 @@
 
         public void AddItem(T item)
         {
-            File.AppendAllText(item.FilePath, item.ParseToCsv(item));
+            File.AppendAllText(item.FilePath, item.ParseToCsv());
         }
 
         public List<T> GetItems()
@@ -21,47 +21,7 @@
             var result = new List<T>();
             foreach (var line in allLines)
             {
-                var columns = line.Trim().Split(',');
-                if (typeof(T) == typeof(FoodItem))
-                {
-                    if (columns.Length == 4)
-                    {
-                        var foodItem = new FoodItem(
-                            double.Parse(columns[0]),
-                            columns[1],
-                            DateOnly.Parse(columns[2]),
-                            int.Parse(columns[3])
-                        );
-                        result.Add((T)(object)foodItem);
-                    }
-
-                }
-                else if (typeof(T) == typeof(WeaponItem))
-                {
-                    if (columns.Length == 3)
-                    {
-                        var weaponItem = new WeaponItem(
-                            double.Parse(columns[0]),
-                            columns[1],
-                            int.Parse(columns[2])
-                        );
-                        result.Add((T)(object)weaponItem);
-                    }
-                }
-                else if (typeof(T) == typeof(MedicalItem))
-                {
-                    if (columns.Length == 4)
-                    {
-                        var medicalItem = new MedicalItem(
-                            double.Parse(columns[0]),
-                            columns[1],
-                            DateOnly.Parse(columns[2]),
-                            columns[3]
-                        );
-                        result.Add((T)(object)medicalItem);
-                    }
-
-                }
+                result.Add(ParseFromCsv(line));
             }
             return result;
         }
@@ -81,9 +41,46 @@
             throw new ArgumentException("Tokio vardo nera");
         }
 
-        public string ParseFromCsv()
+        public T ParseFromCsv(string line)
         {
-            throw new NotImplementedException();
+            var columns = line.Trim().Split(',');
+            if (typeof(T) == typeof(FoodItem))
+            {
+                if (columns.Length == 4)
+                {
+                    string name = columns[0].Trim();
+                    double weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'));
+                    DateOnly expirationDate = DateOnly.Parse(columns[2].Trim());
+                    int calories = int.Parse(columns[3].Trim().TrimEnd('k', 'c', 'a', 'l'));
+
+                    return (T)(object)new FoodItem(name, weight, expirationDate, calories);
+                }
+            }
+            else if (typeof(T) == typeof(WeaponItem))
+            {
+                if (columns.Length == 3)
+                {
+                    string name = columns[0].Trim();
+                    double weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'));
+                    int damage = int.Parse(columns[2].Trim().TrimEnd('d', 'm', 'g'));
+
+                    return (T)(object)new WeaponItem(name, weight, damage);
+                }
+            }
+            else if (typeof(T) == typeof(MedicalItem))
+            {
+                if (columns.Length == 4)
+                {
+                    string name = columns[0].Trim();
+                    double weight = double.Parse(columns[1].Trim().TrimEnd('k', 'g'));
+                    DateOnly expirationDate = DateOnly.Parse(columns[2].Trim());
+                    string treatedDiseases = columns[3].Trim();
+
+                    return (T)(object)new MedicalItem(name, weight, expirationDate, treatedDiseases);
+                }
+            }
+
+            throw new ArgumentException();
         }
     }
 }
