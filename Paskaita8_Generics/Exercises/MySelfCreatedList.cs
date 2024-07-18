@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace Paskaita8_Generics.Exercises
+﻿namespace Paskaita8_Generics.Exercises
 {
     internal class MySelfCreatedList<T>
     {

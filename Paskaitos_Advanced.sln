@@ -3,31 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita1_OOP1", "Paskaita1_OOP1\Paskaita1_OOP1.csproj", "{11248990-C51B-4C18-AC8D-0ECC395276B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita01_OOP1", "Paskaita1_OOP1\Paskaita01_OOP1.csproj", "{11248990-C51B-4C18-AC8D-0ECC395276B9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita2_MethodsInClasses", "Paskaita2_MethodsInClasses\Paskaita2_MethodsInClasses.csproj", "{83E893C3-EF4F-4460-A405-CB12A9C3F835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita02_MethodsInClasses", "Paskaita2_MethodsInClasses\Paskaita02_MethodsInClasses.csproj", "{83E893C3-EF4F-4460-A405-CB12A9C3F835}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita3_Paveldejimas", "Paskaita3_Paveldejimas\Paskaita3_Paveldejimas.csproj", "{6B349EA4-95D1-412E-B823-758D7E3C18A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita03_Paveldejimas", "Paskaita3_Paveldejimas\Paskaita03_Paveldejimas.csproj", "{6B349EA4-95D1-412E-B823-758D7E3C18A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita3_PaveldejimasTests", "Paskaita3_PaveldejimasTests\Paskaita3_PaveldejimasTests.csproj", "{34F8AA26-753D-4664-B30E-A0CA3510C3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita03_PaveldejimasTests", "Paskaita3_PaveldejimasTests\Paskaita03_PaveldejimasTests.csproj", "{34F8AA26-753D-4664-B30E-A0CA3510C3B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B0D5FCB7-BF4C-406D-B1B0-10B2B9623C1C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita4_Abstract", "Paskaita4_Abstract\Paskaita4_Abstract.csproj", "{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita04_Abstract", "Paskaita4_Abstract\Paskaita04_Abstract.csproj", "{F4E43C78-5CF6-4295-982D-D9CD17FF5F60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita5_AccessModifiers", "Paskaita5_AccessModifiers\Paskaita5_AccessModifiers.csproj", "{09061C3C-AAB5-4345-A6E4-4670342F3BAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita05_AccessModifiers", "Paskaita5_AccessModifiers\Paskaita05_AccessModifiers.csproj", "{09061C3C-AAB5-4345-A6E4-4670342F3BAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita6_Streams", "Paskaita6_Streams\Paskaita6_Streams.csproj", "{CCDF0EF7-83F5-4208-BBD2-4CEA21AFE2D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita06_Streams", "Paskaita6_Streams\Paskaita06_Streams.csproj", "{CCDF0EF7-83F5-4208-BBD2-4CEA21AFE2D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita6_MiniProjektas", "Paskaita6_MiniProjektas\Paskaita6_MiniProjektas.csproj", "{D6517089-F58D-492F-8550-C34CFBE1BA18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita06_MiniProjektas", "Paskaita6_MiniProjektas\Paskaita06_MiniProjektas.csproj", "{D6517089-F58D-492F-8550-C34CFBE1BA18}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita7_Streams", "Paskaita7_Streams\Paskaita7_Streams.csproj", "{3FB5584E-6A4D-45D1-8438-FBDF10DE6B11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita07_Streams", "Paskaita7_Streams\Paskaita07_Streams.csproj", "{3FB5584E-6A4D-45D1-8438-FBDF10DE6B11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita8_Generics", "Paskaita8_Generics\Paskaita8_Generics.csproj", "{17E74874-6057-40F7-B202-382A2B873113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita08_Generics", "Paskaita8_Generics\Paskaita08_Generics.csproj", "{17E74874-6057-40F7-B202-382A2B873113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita9_Generics", "Paskaita9_Generics\Paskaita9_Generics.csproj", "{D0F3E247-8B34-48E6-B3EC-261616C4F7BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita09_Generics", "Paskaita9_Generics\Paskaita09_Generics.csproj", "{D0F3E247-8B34-48E6-B3EC-261616C4F7BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita9_MiniProjektas", "Paskaita9_MiniProjektas\Paskaita9_MiniProjektas.csproj", "{F5FCB239-40F2-45B5-A418-727168C57B21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita09_MiniProjektas", "Paskaita9_MiniProjektas\Paskaita09_MiniProjektas.csproj", "{F5FCB239-40F2-45B5-A418-727168C57B21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita10_ExceptionHandling", "Paskaita10_ExceptionHandling\Paskaita10_ExceptionHandling.csproj", "{6087F2D2-2817-444A-8688-E8E3C37CF733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita11_ExtensionMethods", "Paskaita11_ExtensionMethods\Paskaita11_ExtensionMethods.csproj", "{03DF71EC-20E0-4F81-9AFC-1F3235EBA595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,14 @@ Global
 		{F5FCB239-40F2-45B5-A418-727168C57B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5FCB239-40F2-45B5-A418-727168C57B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5FCB239-40F2-45B5-A418-727168C57B21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6087F2D2-2817-444A-8688-E8E3C37CF733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6087F2D2-2817-444A-8688-E8E3C37CF733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6087F2D2-2817-444A-8688-E8E3C37CF733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6087F2D2-2817-444A-8688-E8E3C37CF733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03DF71EC-20E0-4F81-9AFC-1F3235EBA595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03DF71EC-20E0-4F81-9AFC-1F3235EBA595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03DF71EC-20E0-4F81-9AFC-1F3235EBA595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03DF71EC-20E0-4F81-9AFC-1F3235EBA595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
 ﻿using Paskaita8_Generics.Exercises;
-//using Paskaita9_Generics;
 
 namespace Paskaita8_Generics
 {
@@ -37,7 +36,7 @@ namespace Paskaita8_Generics
             #region ***** #1 *****
 
             //decimal? number = null;
-            //Validation.Validate<decimal?>(number);
+            //Validation<decimal?>.Validate(number);
 
             #endregion
 
@@ -63,8 +62,6 @@ namespace Paskaita8_Generics
             //myList.DeleteElement("vienas");
 
             #endregion
-
-            //var obj = new FourSideGeometricFigure();
         }
 
         #region ***** Theory *****

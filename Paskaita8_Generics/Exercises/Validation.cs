@@ -1,8 +1,8 @@
 ﻿namespace Paskaita8_Generics.Exercises
 {
-    internal static class Validation
+    internal static class Validation<T>
     {
-        public static void Validate<T>(T value)
+        public static void Validate(T value)
         {
             if (value == null)
             {
