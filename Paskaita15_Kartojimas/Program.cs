@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Paskaita15_Kartojimas
+﻿namespace Paskaita15_Kartojimas
 {
     public class Program
     {
@@ -16,7 +14,7 @@ namespace Paskaita15_Kartojimas
         }
     }
 
-    #region ***** Model and Service *****
+    #region ***** Model and Service Example *****
 
     // tipine POCO/modelio klase - duomenu konteineriai
     // nereikia interface, geriau veikia abstract klases
