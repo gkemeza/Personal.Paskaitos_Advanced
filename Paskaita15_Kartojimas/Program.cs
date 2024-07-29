@@ -4,12 +4,13 @@
     {
         static void Main(string[] args)
         {
-            //IMyLogger logger = new ConsoleMyLogger();
-            //IMyLogger logger2 = new FileMyLogger("text.txt");
-            var bufferedFileLogger = new BufferedFileLogger("text.txt", 10);
+            IMyLogger fileLogger = new FileMyLogger("text.txt");
+            ConsoleMyLogger consoleLogger = new ConsoleMyLogger();
+            BufferedFileLogger? bufferedFileLogger = new BufferedFileLogger("text.txt", 10);
 
-            var loggers = new List<IMyLogger> { bufferedFileLogger };
+            var loggers = new List<IMyLogger> { fileLogger, consoleLogger, bufferedFileLogger };
             OrderService orderService = new OrderService(loggers);
+
             orderService.PlaceOrder();
         }
     }
@@ -61,7 +62,7 @@
 
     #endregion
 
-    // Loger projektas
+    // Logger projektas
     /*
      1. Pakeiskite pateiką programą taip, kad vietoje ConsoleMyLogger klasės būtų naudojamas FileMyLogger klasės objektas
      - Keisti galima tik Main metodą, visą kitą kodą palikti nepakeistą.
@@ -80,20 +81,17 @@
         Sukurkite LogEventArgs klasę ir leiskite išoriniams komponentams užsiprenumeruoti šiuos įvykius..
      */
 
-    public class LogEventArgs()
-    {
+    //public class MyLoggerProgram
+    //{
+    //    static void A_Main(string[] args)
+    //    {
+    //        var bufferedFileLogger = new BufferedFileLogger("text.txt", 10);
 
-    }
+    //        var loggers = new List<IMyLogger> { bufferedFileLogger };
+    //        OrderService orderService = new OrderService(loggers);
 
-    public class MyLoggerProgram
-    {
-        static void A_Main(string[] args)
-        {
-            var bufferedFileLogger = new BufferedFileLogger("text.txt", 10);
-
-            var loggers = new List<IMyLogger> { bufferedFileLogger };
-            OrderService orderService = new OrderService(loggers);
-            orderService.PlaceOrder();
-        }
-    }
+    //        orderService.LogEvent += (sender, message) => Console.WriteLine($"Log {message}");
+    //        var order = orderService.PlaceOrder();
+    //    }
+    //}
 }

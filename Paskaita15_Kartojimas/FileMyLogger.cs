@@ -13,7 +13,7 @@
         {
             try
             {
-                File.AppendAllText(_filePath, message);
+                File.AppendAllText(_filePath, message + Environment.NewLine);
             }
             catch (FileNotFoundException ex)
             {

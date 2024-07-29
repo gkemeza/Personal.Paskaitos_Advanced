@@ -2,6 +2,6 @@
 {
     public interface IMyLogger
     {
-        void Log(string message);
+        public void Log(string message);
     }
 }
