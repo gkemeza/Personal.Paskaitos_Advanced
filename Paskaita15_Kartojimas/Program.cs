@@ -6,10 +6,15 @@
         {
             IMyLogger fileLogger = new FileMyLogger("text.txt");
             ConsoleMyLogger consoleLogger = new ConsoleMyLogger();
-            BufferedFileLogger? bufferedFileLogger = new BufferedFileLogger("text.txt", 10);
+            var bufferedFileLogger = new BufferedFileLogger("text.txt", 10);
 
             var loggers = new List<IMyLogger> { fileLogger, consoleLogger, bufferedFileLogger };
             OrderService orderService = new OrderService(loggers);
+
+            orderService.LogEvent += (sender, args) =>
+            {
+                Console.WriteLine($"[Timestamp] {args.Message}");
+            };
 
             orderService.PlaceOrder();
         }
