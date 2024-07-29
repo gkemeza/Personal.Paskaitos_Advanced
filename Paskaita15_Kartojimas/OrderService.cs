@@ -21,7 +21,7 @@
         {
             // Kažkokia biznio logika
             var order = new Order(0.1, 100);
-            OnLogEvent($"Order has been placed. Price={order.Price}, Amount={order.Amount}"));
+            OnLogEvent($"Order has been placed. Price={order.Price}, Amount={order.Amount}");
             return order;
         }
 
