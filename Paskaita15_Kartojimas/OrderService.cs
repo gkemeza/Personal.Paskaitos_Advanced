@@ -6,7 +6,7 @@
 
         public OrderService(IEnumerable<IMyLogger> loggers)// Priklausomybių injekcija per konstruktorių
         {
-            _loggers = new List<IMyLogger>(loggers);
+            _loggers = new List<IMyLogger>(loggers ?? Enumerable.Empty<IMyLogger>());
             _loggers.ForEach(logger => LogEvent += logger.Log);
         }
 
