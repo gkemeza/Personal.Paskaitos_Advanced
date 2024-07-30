@@ -1,4 +1,5 @@
 ﻿using Paskaita16_Bankomatas.Services;
+using Paskaita16_Bankomatas.Models;
 
 namespace Paskaita16_Bankomatas
 {
@@ -6,10 +7,18 @@ namespace Paskaita16_Bankomatas
     {
         static void Main(string[] args)
         {
-            UserInterface ui = new UserInterface(new CardService(), new TransactionService(), new Validation());
+            UserInterface ui = new UserInterface(
+                new CardService(@"..\..\..\CardInfo.csv"), new TransactionService(), new Validation()
+                );
+
             while (true)
             {
-                ui.ProcessMainMenuOption();
+                ui.FillTestCards();
+
+                if (ui.TryToGetCard())
+                {
+                    ui.ProcessMainMenuOption();
+                }
             }
         }
     }
