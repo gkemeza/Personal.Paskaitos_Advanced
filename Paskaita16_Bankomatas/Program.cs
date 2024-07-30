@@ -7,9 +7,10 @@ namespace Paskaita16_Bankomatas
     {
         static void Main(string[] args)
         {
-            UserInterface ui = new UserInterface(
-                new CardService(@"..\..\..\CardInfo.csv"), new TransactionService(), new Validation()
-                );
+            ICardService cardService = new CardService(@"..\..\..\CardInfo.csv");
+            IUserInterface ui = new UserInterface(cardService, new Validation());
+            ITransactionService transactionService = new TransactionService(cardService, ui);
+            IController controller = new Controller(cardService, transactionService, ui);
 
             while (true)
             {
@@ -19,7 +20,7 @@ namespace Paskaita16_Bankomatas
                 {
                     while (true)
                     {
-                        ui.ProcessMainMenuOption(id);
+                        controller.ProcessMainMenuOption(id);
                     }
                 }
             }

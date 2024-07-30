@@ -87,6 +87,5 @@ namespace Paskaita16_Bankomatas.Services
             cards.ForEach(SaveCardInfo);
         }
 
-
     }
 }

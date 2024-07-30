@@ -7,11 +7,11 @@ namespace Paskaita16_Bankomatas.Services
         private readonly IValidation _validation;
         private readonly ITransactionService _transactionService;
         private readonly ICardService _cardService;
+        private readonly IController _controller;
 
-        public UserInterface(ICardService cardService, ITransactionService transaction, IValidation validation)
+        public UserInterface(ICardService cardService, IValidation validation)
         {
             _cardService = cardService;
-            _transactionService = transaction;
             _validation = validation;
         }
 
@@ -51,8 +51,6 @@ namespace Paskaita16_Bankomatas.Services
             return false;
         }
 
-
-
         // TODO: validation
         public Guid PromptForCardId()
         {
@@ -61,6 +59,12 @@ namespace Paskaita16_Bankomatas.Services
 
         // TODO: validation
         public int PromptForCardPin()
+        {
+            return int.Parse(Console.ReadLine());
+        }
+
+        // TODO: validation
+        public int PromptForWithdraw()
         {
             return int.Parse(Console.ReadLine());
         }
@@ -77,6 +81,12 @@ namespace Paskaita16_Bankomatas.Services
             Console.WriteLine($"Iveskite korteles Pin (Liko {i} bandymai):");
         }
 
+        public void DisplayPromptForWithdraw()
+        {
+            Console.Clear();
+            Console.WriteLine($"Iveskite issigryninama suma (turi dalintis is 5):");
+        }
+
         public void DisplayMainMenu()
         {
             Console.Clear();
@@ -85,6 +95,7 @@ namespace Paskaita16_Bankomatas.Services
             Console.WriteLine("3. Transakcijos");
             Console.WriteLine("q. Grazinti kortele");
         }
+
         public void DisplayBalance()
         {
             throw new NotImplementedException();
@@ -93,12 +104,6 @@ namespace Paskaita16_Bankomatas.Services
         public void DisplayWithdrawalMenu()
         {
             throw new NotImplementedException();
-        }
-
-        public void ProcessMainMenuOption(Guid id)
-        {
-            string option = GetMainMenuOption();
-            CallChosenOptionMethod(id, option);
         }
 
         public string GetMainMenuOption()
@@ -118,27 +123,5 @@ namespace Paskaita16_Bankomatas.Services
             }
         }
 
-        public void CallChosenOptionMethod(Guid id, string option)
-        {
-            Console.Clear();
-            switch (option)
-            {
-                case "1":
-                    Console.WriteLine($"Balansas: {_cardService.GetBalance(id)} Eur");
-                    Console.WriteLine("q. Atgal");
-                    Console.ReadLine();
-                    break;
-                case "2":
-                    _transactionService.WithdrawCash();
-                    break;
-                case "3":
-                    _transactionService.GetPastTransactions();
-                    break;
-                case "q":
-                    Console.WriteLine("Pasiimkite kortele");
-                    Environment.Exit(0);
-                    break;
-            }
-        }
     }
 }
