@@ -17,7 +17,7 @@ namespace Paskaita16_Bankomatas.Services
             File.AppendAllText(_filePath, cardData + Environment.NewLine);
         }
 
-        public List<Card> ReadCardsInfo()
+        private List<Card> ReadCardsInfo()
         {
             var cards = new List<Card>();
 
@@ -49,19 +49,30 @@ namespace Paskaita16_Bankomatas.Services
             return cards;
         }
 
-        public bool VerifyId()
+        public Card GetCard(Guid id)
         {
-            throw new NotImplementedException();
+            var cards = ReadCardsInfo();
+            return cards.First(card => card.Id == id);
         }
 
-        public bool VerifyPin()
+        public bool IsCorrectId(Guid id)
         {
-            throw new NotImplementedException();
+            var cards = ReadCardsInfo();
+            return cards.Any(card => card.Id == id);
         }
 
-        public decimal GetBalance()
+        public bool IsCorrectPin(Guid id, int pin)
         {
-            throw new NotImplementedException();
+            var cards = ReadCardsInfo();
+            var card = cards.FirstOrDefault(card => card.Id == id);
+            return card != null && card.Pin == pin;
+        }
+
+        public decimal GetBalance(Guid id)
+        {
+            List<Card> cards = ReadCardsInfo();
+            Card card = cards.FirstOrDefault(x => x.Id == id);
+            return card.Balance;
         }
 
         public void SaveTestCards()

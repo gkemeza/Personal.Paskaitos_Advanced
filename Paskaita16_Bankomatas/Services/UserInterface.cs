@@ -20,16 +20,16 @@ namespace Paskaita16_Bankomatas.Services
             _cardService.SaveTestCards();
         }
 
-        public bool TryToGetCard()
+        public bool TryToGetCard(out Guid id)
         {
             DisplayPromptForId();
-            Guid id = PromptForCardId();
+            id = PromptForCardId();
 
-            if (IsCorrectId(id))
+            if (_cardService.IsCorrectId(id))
             {
                 if (TryToGetCardPin(id))
                 {
-                    GetCard(id);
+                    _cardService.GetCard(id);
                     return true;
                 }
             }
@@ -43,7 +43,7 @@ namespace Paskaita16_Bankomatas.Services
                 DisplayPromptForPin(i);
                 int pin = PromptForCardPin();
 
-                if (IsCorrectPin(id, pin))
+                if (_cardService.IsCorrectPin(id, pin))
                 {
                     return true;
                 }
@@ -51,24 +51,7 @@ namespace Paskaita16_Bankomatas.Services
             return false;
         }
 
-        public Card GetCard(Guid id)
-        {
-            var cards = _cardService.ReadCardsInfo();
-            return cards.First(card => card.Id == id);
-        }
 
-        public bool IsCorrectId(Guid id)
-        {
-            var cards = _cardService.ReadCardsInfo();
-            return cards.Any(card => card.Id == id);
-        }
-
-        public bool IsCorrectPin(Guid id, int pin)
-        {
-            var cards = _cardService.ReadCardsInfo();
-            var card = cards.FirstOrDefault(card => card.Id == id);
-            return card != null && card.Pin == pin;
-        }
 
         // TODO: validation
         public Guid PromptForCardId()
@@ -112,13 +95,13 @@ namespace Paskaita16_Bankomatas.Services
             throw new NotImplementedException();
         }
 
-        public void ProcessMainMenuOption()
+        public void ProcessMainMenuOption(Guid id)
         {
-            string option = ReturnMainMenuOption();
-            CallChosenOptionMethod(option);
+            string option = GetMainMenuOption();
+            CallChosenOptionMethod(id, option);
         }
 
-        public string ReturnMainMenuOption()
+        public string GetMainMenuOption()
         {
             DisplayMainMenu();
 
@@ -131,17 +114,19 @@ namespace Paskaita16_Bankomatas.Services
             else
             {
                 Console.Clear();
-                return ReturnMainMenuOption();
+                return GetMainMenuOption();
             }
         }
 
-        public void CallChosenOptionMethod(string option)
+        public void CallChosenOptionMethod(Guid id, string option)
         {
             Console.Clear();
             switch (option)
             {
                 case "1":
-                    _cardService.GetBalance();
+                    Console.WriteLine($"Balansas: {_cardService.GetBalance(id)} Eur");
+                    Console.WriteLine("q. Atgal");
+                    Console.ReadLine();
                     break;
                 case "2":
                     _transactionService.WithdrawCash();

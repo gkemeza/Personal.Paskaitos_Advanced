@@ -15,9 +15,12 @@ namespace Paskaita16_Bankomatas
             {
                 ui.FillTestCards();
 
-                if (ui.TryToGetCard())
+                if (ui.TryToGetCard(out Guid id))
                 {
-                    ui.ProcessMainMenuOption();
+                    while (true)
+                    {
+                        ui.ProcessMainMenuOption(id);
+                    }
                 }
             }
         }
