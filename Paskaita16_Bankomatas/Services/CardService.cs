@@ -5,22 +5,22 @@ namespace Paskaita16_Bankomatas.Services
 {
     public class CardService : ICardService
     {
-        private readonly string _filePath;
+        private readonly string _cardFilePath;
 
-        public CardService(string filePath)
+        public CardService(string cardFilePath)
         {
-            _filePath = filePath;
+            _cardFilePath = cardFilePath;
         }
 
         private void SaveCardInfo(Card card)
         {
-            File.AppendAllText(_filePath, JsonSerializer.Serialize(card) + Environment.NewLine);
+            File.AppendAllText(_cardFilePath, JsonSerializer.Serialize(card) + Environment.NewLine);
         }
 
         private void SaveCardsInfo(List<Card> cards)
         {
             var lines = cards.Select(card => JsonSerializer.Serialize(card));
-            File.WriteAllLines(_filePath, lines);
+            File.WriteAllLines(_cardFilePath, lines);
         }
 
         private List<Card> ReadCardsInfo()
@@ -28,9 +28,9 @@ namespace Paskaita16_Bankomatas.Services
             var cards = new List<Card>();
             try
             {
-                if (File.Exists(_filePath))
+                if (File.Exists(_cardFilePath))
                 {
-                    string[] lines = File.ReadAllLines(_filePath);
+                    string[] lines = File.ReadAllLines(_cardFilePath);
                     foreach (string line in lines)
                     {
                         if (!string.IsNullOrWhiteSpace(line))

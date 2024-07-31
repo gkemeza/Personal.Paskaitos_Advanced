@@ -7,9 +7,9 @@ namespace Paskaita16_Bankomatas
     {
         static void Main(string[] args)
         {
-            ICardService cardService = new CardService(@"..\..\..\CardInfo.json");
+            ICardService cardService = new CardService(@"..\..\..\cardsInfo.json");
             IUserInterface ui = new UserInterface(cardService, new Validation());
-            ITransactionService transactionService = new TransactionService(cardService, ui);
+            ITransactionService transactionService = new TransactionService(cardService, ui, @"..\..\..\transactionsInfo.json");
             IController controller = new Controller(cardService, transactionService, ui);
 
             cardService.SaveTestCards();
