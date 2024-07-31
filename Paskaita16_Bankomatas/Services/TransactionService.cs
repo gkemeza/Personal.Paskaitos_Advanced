@@ -6,15 +6,11 @@ namespace Paskaita16_Bankomatas.Services
     {
         private readonly ICardService _cardService;
         private readonly IUserInterface _userInterface;
-        //private readonly List<Transaction> _transactions;
-
-        List<Transaction> PastTransactions { get; set; }
 
         public TransactionService(ICardService cardService, IUserInterface userInterface)
         {
             _cardService = cardService;
             _userInterface = userInterface;
-            //_transactions = new List<Transaction>();
         }
 
         public void WithdrawCash(Guid id)
