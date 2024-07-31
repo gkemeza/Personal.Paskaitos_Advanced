@@ -1,4 +1,5 @@
 ﻿using Paskaita16_Bankomatas.Models;
+using System.Text.Json;
 
 namespace Paskaita16_Bankomatas.Services
 {
@@ -13,14 +14,12 @@ namespace Paskaita16_Bankomatas.Services
 
         public void SaveCardInfo(Card card)
         {
-            string cardData = $"{card.Id},{card.Pin},{card.Balance}";
-            File.AppendAllText(_filePath, cardData + Environment.NewLine);
+            File.AppendAllText(_filePath, JsonSerializer.Serialize(card) + Environment.NewLine);
         }
 
         private List<Card> ReadCardsInfo()
         {
             var cards = new List<Card>();
-
             try
             {
                 if (File.Exists(_filePath))
@@ -28,25 +27,25 @@ namespace Paskaita16_Bankomatas.Services
                     string[] lines = File.ReadAllLines(_filePath);
                     foreach (string line in lines)
                     {
-                        string[] parts = line.Split(',');
-                        if (parts.Length == 3)
+                        if (!string.IsNullOrWhiteSpace(line))
                         {
-                            Card card = new Card
-                            (
-                                Guid.Parse(parts[0]),
-                                int.Parse(parts[1]),
-                                decimal.Parse(parts[2])
-                            );
+                            Card card = JsonSerializer.Deserialize<Card>(line);
                             cards.Add(card);
                         }
-                    };
+                    }
                 }
             }
             catch (FileNotFoundException e)
             {
+                Console.WriteLine($"Error: {e}");
             }
 
             return cards;
+        }
+
+        public void UpdateCardBalance()
+        {
+
         }
 
         public Card GetCard(Guid id)
@@ -81,7 +80,7 @@ namespace Paskaita16_Bankomatas.Services
             {
                 new Card ( Guid.Parse("6E75B40C-C95F-451F-9602-301801234567"), 1234, 500m),
                 new Card ( Guid.Parse("F3E2187C-3C6E-44C9-A445-2B2871543210"), 1234, 700m),
-                new Card ( Guid.Parse("9A7B4C5D-E6F7-48A9-B0A1-234567890ABC"), 1234, 1000m)
+                new Card ( Guid.NewGuid(), 1234, 1000m)
             };
 
             cards.ForEach(SaveCardInfo);

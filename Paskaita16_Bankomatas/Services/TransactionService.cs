@@ -6,7 +6,7 @@ namespace Paskaita16_Bankomatas.Services
     {
         private readonly ICardService _cardService;
         private readonly IUserInterface _userInterface;
-        private readonly List<Transaction> _transactions;
+        //private readonly List<Transaction> _transactions;
 
         List<Transaction> PastTransactions { get; set; }
 
@@ -14,7 +14,7 @@ namespace Paskaita16_Bankomatas.Services
         {
             _cardService = cardService;
             _userInterface = userInterface;
-            _transactions = new List<Transaction>();
+            //_transactions = new List<Transaction>();
         }
 
         private bool TryWithdrawCash(Guid id, decimal amount)
@@ -26,7 +26,6 @@ namespace Paskaita16_Bankomatas.Services
                 return false;
             }
 
-            // TODO: update card balance in file!
             card.Balance -= amount;
             return true;
         }
@@ -38,10 +37,6 @@ namespace Paskaita16_Bankomatas.Services
 
             if (TryWithdrawCash(id, amount))
             {
-                _transactions.Add(
-                    new Transaction(amount, DateTime.Now, "Withdraw")
-                    );
-
                 Console.WriteLine($"Isimta {amount} Eur");
             }
         }
