@@ -12,16 +12,13 @@ namespace Paskaita16_Bankomatas
             ITransactionService transactionService = new TransactionService(cardService, ui);
             IController controller = new Controller(cardService, transactionService, ui);
 
-            while (true)
-            {
-                ui.FillTestCards();
+            cardService.SaveTestCards();
 
-                if (ui.TryToGetCard(out Guid id))
+            if (ui.TryToGetCard(out Guid id))
+            {
+                while (true)
                 {
-                    while (true)
-                    {
-                        controller.ProcessMainMenuOption(id);
-                    }
+                    controller.ProcessMainMenuOption(id);
                 }
             }
         }
