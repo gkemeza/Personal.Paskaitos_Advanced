@@ -15,11 +15,6 @@ namespace Paskaita16_Bankomatas.Services
             _validation = validation;
         }
 
-        public void FillTestCards()
-        {
-            _cardService.SaveTestCards();
-        }
-
         public bool TryToGetCard(out Guid id)
         {
             DisplayPromptForId();
