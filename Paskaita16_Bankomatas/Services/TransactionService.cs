@@ -17,25 +17,12 @@ namespace Paskaita16_Bankomatas.Services
             //_transactions = new List<Transaction>();
         }
 
-        private bool TryWithdrawCash(Guid id, decimal amount)
-        {
-            var card = _cardService.GetCard(id);
-
-            if (card == null || card.Balance < amount)
-            {
-                return false;
-            }
-
-            card.Balance -= amount;
-            return true;
-        }
-
         public void WithdrawCash(Guid id)
         {
             _userInterface.DisplayPromptForWithdraw();
             int amount = _userInterface.PromptForWithdraw();
 
-            if (TryWithdrawCash(id, amount))
+            if (_cardService.TryWithdrawCash(id, amount))
             {
                 Console.WriteLine($"Isimta {amount} Eur");
             }
