@@ -1,4 +1,6 @@
 ﻿using Paskaita16_Bankomatas.Models;
+using System.Globalization;
+using System.Text.Json;
 
 namespace Paskaita16_Bankomatas.Services
 {
@@ -15,20 +17,103 @@ namespace Paskaita16_Bankomatas.Services
             _transactionFilePath = transactionFilePath;
         }
 
+
         public void WithdrawCash(Guid id)
         {
             _userInterface.DisplayPromptForWithdraw();
             int amount = _userInterface.PromptForWithdraw();
 
-            if (_cardService.TryWithdrawCash(id, amount))
+            if (TryWithdrawCash(id, amount))
             {
                 Console.WriteLine($"Isimta {amount} Eur");
             }
         }
 
-        public List<Transaction> GetPastTransactions()
+        public bool TryWithdrawCash(Guid id, decimal amount)
         {
-            throw new NotImplementedException();
+            var cards = _cardService.ReadCardsInfo();
+
+            // FirstOrDefault() returns a reference to the actual Card object in the list
+            Card? card = cards.FirstOrDefault(card => card.Id == id);
+
+            if (card == null)
+            {
+                throw new ArgumentException($"Card with ID {id} not found.");
+            }
+            // TODO: move this to validation
+            else if (card.Balance < amount)
+            {
+                throw new ArgumentException($"Card's balance can't be less than withdraw amount.");
+            }
+            else
+            {
+                card.Balance -= amount;
+                _cardService.SaveCardsInfo(cards);
+
+                var transaction = new Transaction
+                (
+                    id,
+                    amount,
+                    DateTime.Now,
+                    "Withdraw"
+                );
+                SaveTransaction(transaction);
+
+                return true;
+            }
+        }
+
+        public void SaveTransaction(Transaction transaction)
+        {
+            List<Transaction> transactions = LoadTransactions();
+            transactions.Add(transaction);
+
+            var json = JsonSerializer.Serialize(transactions);
+            try
+            {
+                using (var writer = new StreamWriter(_transactionFilePath))
+                {
+                    writer.Write(json);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e}");
+            }
+            //File.WriteAllLines(_transactionFilePath, lines + Environment.NewLine);
+        }
+
+        public List<Transaction> LoadTransactions()
+        {
+            if (!File.Exists(_transactionFilePath))
+                return new List<Transaction>();
+
+            string jsonString = File.ReadAllText(_transactionFilePath);
+            return JsonSerializer.Deserialize<List<Transaction>>(jsonString) ?? new List<Transaction>();
+        }
+
+        public void DisplayTransactions(Guid id)
+        {
+            var transactions = GetTransactionsForId(id);
+
+            if (transactions.Count == 0)
+            {
+                Console.WriteLine("Transakciju nerasta.");
+                return;
+            }
+
+            Console.WriteLine("Transakcijos:");
+            Console.WriteLine("----------------");
+
+            foreach (var transaction in transactions)
+            {
+                Console.WriteLine($"{transaction.Date:yyyy-MM-dd HH:mm} -> {transaction.Type} {transaction.Amount} Eur");
+            }
+        }
+
+        private List<Transaction> GetTransactionsForId(Guid id)
+        {
+            return LoadTransactions().Where(t => t.CardId == id).ToList();
         }
     }
 }

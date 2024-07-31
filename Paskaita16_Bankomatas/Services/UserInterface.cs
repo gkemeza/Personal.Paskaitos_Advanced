@@ -5,9 +5,7 @@ namespace Paskaita16_Bankomatas.Services
     public class UserInterface : IUserInterface
     {
         private readonly IValidation _validation;
-        private readonly ITransactionService _transactionService;
         private readonly ICardService _cardService;
-        private readonly IController _controller;
 
         public UserInterface(ICardService cardService, IValidation validation)
         {

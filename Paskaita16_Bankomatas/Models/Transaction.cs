@@ -2,17 +2,22 @@
 {
     public class Transaction
     {
-        public Guid CardID { get; set; }
+        public Guid CardId { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public string Type { get; set; }
         //List<Banknote> Banknotes { get; set; }
 
-        public Transaction(decimal amount, DateTime date, string action)
+        public Transaction()
         {
+        }
+
+        public Transaction(Guid id, decimal amount, DateTime date, string type)
+        {
+            CardId = id;
             Amount = amount;
             Date = date;
-            Type = action;
+            Type = type;
         }
     }
 }

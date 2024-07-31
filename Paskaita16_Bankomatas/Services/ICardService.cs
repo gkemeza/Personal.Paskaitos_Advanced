@@ -9,6 +9,7 @@ namespace Paskaita16_Bankomatas.Services
         public Card GetCard(Guid id);
         public bool IsCorrectId(Guid id);
         public bool IsCorrectPin(Guid id, int pin);
-        public bool TryWithdrawCash(Guid id, decimal amount);
+        public List<Card> ReadCardsInfo();
+        public void SaveCardsInfo(List<Card> cards);
     }
 }

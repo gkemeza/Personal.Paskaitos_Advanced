@@ -17,13 +17,13 @@ namespace Paskaita16_Bankomatas.Services
             File.AppendAllText(_cardFilePath, JsonSerializer.Serialize(card) + Environment.NewLine);
         }
 
-        private void SaveCardsInfo(List<Card> cards)
+        public void SaveCardsInfo(List<Card> cards)
         {
             var lines = cards.Select(card => JsonSerializer.Serialize(card));
             File.WriteAllLines(_cardFilePath, lines);
         }
 
-        private List<Card> ReadCardsInfo()
+        public List<Card> ReadCardsInfo()
         {
             var cards = new List<Card>();
             try
@@ -47,30 +47,6 @@ namespace Paskaita16_Bankomatas.Services
             }
 
             return cards;
-        }
-
-        public bool TryWithdrawCash(Guid id, decimal amount)
-        {
-            var cards = ReadCardsInfo();
-
-            // FirstOrDefault() returns a reference to the actual Card object in the list
-            Card? card = cards.FirstOrDefault(card => card.Id == id);
-
-            if (card == null)
-            {
-                throw new ArgumentException($"Card with ID {id} not found.");
-            }
-            // TODO: move this to validation
-            else if (card.Balance < amount)
-            {
-                throw new ArgumentException($"Card's balance can't be less than withdraw amount.");
-            }
-            else
-            {
-                card.Balance -= amount;
-                SaveCardsInfo(cards);
-                return true;
-            }
         }
 
         public Card GetCard(Guid id)

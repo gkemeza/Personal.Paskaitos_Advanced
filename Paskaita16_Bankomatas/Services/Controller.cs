@@ -36,7 +36,9 @@
                     Console.ReadLine();
                     break;
                 case "3":
-                    _transactionService.GetPastTransactions();
+                    _transactionService.DisplayTransactions(id);
+                    Console.WriteLine("q. Atgal");
+                    Console.ReadLine();
                     break;
                 case "q":
                     Console.WriteLine("Pasiimkite kortele");

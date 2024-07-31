@@ -5,6 +5,7 @@ namespace Paskaita16_Bankomatas.Services
     public interface ITransactionService
     {
         void WithdrawCash(Guid id);
-        List<Transaction> GetPastTransactions();
+        List<Transaction> LoadTransactions();
+        void DisplayTransactions(Guid id);
     }
 }
