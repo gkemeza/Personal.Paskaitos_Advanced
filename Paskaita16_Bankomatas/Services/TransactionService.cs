@@ -1,5 +1,4 @@
 ﻿using Paskaita16_Bankomatas.Models;
-using System.Globalization;
 using System.Text.Json;
 
 namespace Paskaita16_Bankomatas.Services
@@ -80,7 +79,6 @@ namespace Paskaita16_Bankomatas.Services
             {
                 Console.WriteLine($"Error: {e}");
             }
-            //File.WriteAllLines(_transactionFilePath, lines + Environment.NewLine);
         }
 
         public List<Transaction> LoadTransactions()
@@ -113,7 +111,10 @@ namespace Paskaita16_Bankomatas.Services
 
         private List<Transaction> GetTransactionsForId(Guid id)
         {
-            return LoadTransactions().Where(t => t.CardId == id).ToList();
+            return LoadTransactions().Where(t => t.CardId == id)
+                                    .OrderByDescending(t => t.Date)
+                                    .Take(5)
+                                    .ToList();
         }
     }
 }

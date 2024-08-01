@@ -1,6 +1,4 @@
-﻿using Paskaita16_Bankomatas.Models;
-
-namespace Paskaita16_Bankomatas.Services
+﻿namespace Paskaita16_Bankomatas.Services
 {
     public class UserInterface : IUserInterface
     {
@@ -77,7 +75,7 @@ namespace Paskaita16_Bankomatas.Services
         public void DisplayPromptForWithdraw()
         {
             Console.Clear();
-            Console.WriteLine($"Iveskite issigryninama suma (turi dalintis is 5):");
+            Console.WriteLine($"Iveskite issigryninama suma:");
         }
 
         public void DisplayMainMenu()

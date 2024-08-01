@@ -79,8 +79,8 @@ namespace Paskaita16_Bankomatas.Services
         {
             var cards = new List<Card>
             {
-                new Card ( Guid.Parse("6E75B40C-C95F-451F-9602-301801234567"), 1234, 500m),
-                new Card ( Guid.Parse("F3E2187C-3C6E-44C9-A445-2B2871543210"), 1234, 700m),
+                new Card ( Guid.NewGuid(), 1234, 500m),
+                new Card ( Guid.NewGuid(), 1234, 700m),
                 new Card ( Guid.NewGuid(), 1234, 1000m)
             };
 
