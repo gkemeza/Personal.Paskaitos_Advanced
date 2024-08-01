@@ -87,5 +87,29 @@ namespace Paskaita16_Bankomatas.Services
             cards.ForEach(SaveCardInfo);
         }
 
+        public bool IsValidAmount(Guid id, decimal withdrawAmount)
+        {
+            if (withdrawAmount < 0)
+            {
+                Console.WriteLine("Isimama suma negali buti neigiama!");
+                return false;
+            }
+            else if (withdrawAmount == 0)
+            {
+                Console.WriteLine("Isimama suma negali buti nulis!");
+                return false;
+            }
+            else if (withdrawAmount > 1000)
+            {
+                Console.WriteLine("Isimama suma negali virsyti 1000 Eur!");
+                return false;
+            }
+            else if (withdrawAmount > GetCard(id).Balance)
+            {
+                Console.WriteLine("Isimama suma virsija likuti!");
+                return false;
+            }
+            return true;
+        }
     }
 }

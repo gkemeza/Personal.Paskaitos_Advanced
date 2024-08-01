@@ -24,7 +24,6 @@
             Console.Clear();
             switch (option)
             {
-                // TODO: to method, validation
                 case "1":
                     Console.WriteLine($"Likutis: {_cardService.GetBalance(id)} Eur");
                     Console.WriteLine("q. Atgal");

@@ -16,15 +16,17 @@ namespace Paskaita16_Bankomatas.Services
             _transactionFilePath = transactionFilePath;
         }
 
-
         public void WithdrawCash(Guid id)
         {
             _userInterface.DisplayPromptForWithdraw();
             int amount = _userInterface.PromptForWithdraw();
 
-            if (TryWithdrawCash(id, amount))
+            if (_cardService.IsValidAmount(id, amount))
             {
-                Console.WriteLine($"Isimta {amount} Eur");
+                if (TryWithdrawCash(id, amount))
+                {
+                    Console.WriteLine($"Isimta {amount} Eur");
+                }
             }
         }
 
@@ -32,17 +34,11 @@ namespace Paskaita16_Bankomatas.Services
         {
             var cards = _cardService.ReadCardsInfo();
 
-            // FirstOrDefault() returns a reference to the actual Card object in the list
             Card? card = cards.FirstOrDefault(card => card.Id == id);
 
             if (card == null)
             {
                 throw new ArgumentException($"Card with ID {id} not found.");
-            }
-            // TODO: move this to validation
-            else if (card.Balance < amount)
-            {
-                throw new ArgumentException($"Card's balance can't be less than withdraw amount.");
             }
             else
             {

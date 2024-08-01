@@ -15,6 +15,7 @@ namespace Paskaita16_Bankomatas
 
             if (ui.TryToGetCard(out Guid id))
             {
+                ui.GreetUser(id);
                 while (true)
                 {
                     controller.ProcessMainMenuOption(id);

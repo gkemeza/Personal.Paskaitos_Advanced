@@ -39,6 +39,9 @@
                     return true;
                 }
             }
+
+            Console.Clear();
+            Console.WriteLine("Kortele uzblokuota!");
             return false;
         }
 
@@ -85,6 +88,15 @@
             Console.WriteLine("2. Pinigu isemimas");
             Console.WriteLine("3. Transakcijos");
             Console.WriteLine("q. Grazinti kortele");
+        }
+
+        public void GreetUser(Guid id)
+        {
+            Console.Clear();
+            Console.WriteLine("Prisijungta.");
+            Console.WriteLine($"Korteles likutis: {_cardService.GetCard(id).Balance} Eur");
+            Console.WriteLine("\'Enter\' - testi");
+            Console.ReadLine();
         }
 
         public void DisplayBalance()

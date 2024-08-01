@@ -11,5 +11,6 @@ namespace Paskaita16_Bankomatas.Services
         public bool IsCorrectPin(Guid id, int pin);
         public List<Card> ReadCardsInfo();
         public void SaveCardsInfo(List<Card> cards);
+        public bool IsValidAmount(Guid id, decimal withdrawAmount);
     }
 }

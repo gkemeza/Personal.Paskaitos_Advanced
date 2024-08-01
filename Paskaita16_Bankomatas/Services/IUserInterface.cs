@@ -9,5 +9,6 @@
         public int PromptForWithdraw();
         public bool TryToGetCard(out Guid id);
         public string GetMainMenuOption();
+        public void GreetUser(Guid id);
     }
 }
