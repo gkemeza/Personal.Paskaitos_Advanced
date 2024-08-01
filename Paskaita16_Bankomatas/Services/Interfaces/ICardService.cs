@@ -1,6 +1,6 @@
 ﻿using Paskaita16_Bankomatas.Models;
 
-namespace Paskaita16_Bankomatas.Services
+namespace Paskaita16_Bankomatas.Services.Interfaces
 {
     public interface ICardService
     {

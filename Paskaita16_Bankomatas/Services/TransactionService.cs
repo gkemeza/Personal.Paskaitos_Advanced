@@ -1,4 +1,5 @@
 ﻿using Paskaita16_Bankomatas.Models;
+using Paskaita16_Bankomatas.Services.Interfaces;
 using System.Text.Json;
 
 namespace Paskaita16_Bankomatas.Services

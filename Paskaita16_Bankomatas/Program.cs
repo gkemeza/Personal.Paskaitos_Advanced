@@ -1,4 +1,5 @@
 ﻿using Paskaita16_Bankomatas.Services;
+using Paskaita16_Bankomatas.Services.Interfaces;
 
 namespace Paskaita16_Bankomatas
 {

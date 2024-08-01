@@ -1,4 +1,4 @@
-﻿namespace Paskaita16_Bankomatas.Services
+﻿namespace Paskaita16_Bankomatas.Services.Interfaces
 {
     public interface IUserInterface
     {
